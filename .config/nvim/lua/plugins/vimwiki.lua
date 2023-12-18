@@ -36,7 +36,27 @@ return { -- local wiki
   },
   init = function()
     local WIKIPATH = os.getenv("WIKIPATH")
-
+    require("which-key").register({
+      w = {
+        name = "Vimwiki",
+        i = "Open diary index",
+        l = "Open link in new tab",
+        s = "List and select wikis",
+        t = "Open wiki index file in new tab",
+        u = "Extract title of page and turn into link",
+        v = "Open link in new V split",
+        w = "Open index page",
+        z = "Open link in new H split",
+        [","] = {
+            name = "Diary",
+            i = "Update diary index",
+            m = "Open tomorrow's diary entry",
+            t = "Open diary entry in new tab",
+            w = "Open today's diary entry",
+            y = "Open yesterday's diary entry",
+        },
+      },
+    }, { prefix = "<leader>" })
     vim.g.vimwiki_ext2syntax = {
       [".md"]       = "markdown",
       [".Rmd"]      = "markdown",

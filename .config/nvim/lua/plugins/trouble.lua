@@ -12,42 +12,42 @@ return {
        function()
          require("trouble").open()
        end,
-       desc = "open",
+       desc = "Open Trouble",
     },
     {
       "<leader>xw",
       function()
         require("trouble").open("workspace_diagnostics")
       end,
-      desc = "workspace diagnostics",
+      desc = "Workspace diagnostics",
     },
     {
        "<leader>xd",
        function()
          require("trouble").open("document_diagnostics")
        end,
-       desc = "document diagnostics",
+       desc = "Document diagnostics",
     },
     {
        "<leader>xq",
        function()
          require("trouble").open("quickfix")
        end,
-       desc = "quickfix",
+       desc = "Quickfix",
     },
     {
        "<leader>xl",
        function()
          require("trouble").open("loclist")
        end,
-       desc = "loclist",
+       desc = "Loclist",
     },
     {
        "gR",
        function()
          require("trouble").open("lsp_references")
        end,
-       desc = "lsp references",
+       desc = "Lsp references",
     },
   },
 }
