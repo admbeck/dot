@@ -1,0 +1,30 @@
+snippet [
+	[${1:text}](${2:address})
+snippet [h
+	[${1:text}](https://${2:url})
+snippet ** Bold
+	**$0**
+snippet __ Bold
+	__$0__
+snippet --- Front matter
+	---
+	$0
+	---
+snippet ====
+	`repeat('=', strlen(getline(line('.') - 3)))`
+
+	${0}
+snippet ----
+	`repeat('-', strlen(getline(line('.') - 3)))`
+
+	${0}
+snippet ```
+	\`\`\`${1}
+	${0:${VISUAL}}
+	\`\`\`
+
+# Language.
+snippet ```l
+	\`\`\`${1:language}
+	${2:code}
+	\`\`\`

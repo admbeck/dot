@@ -1,0 +1,23 @@
+# Telegram bots
+snippet aionewbot
+	from keyboards import *
+	from database import *
+	import os
+
+	from aiogram import Dispatcher, executor, Bot
+	from aiogram.types import Message, CallbackQuery,ReplyKeyboardRemove
+	from dotenv import *
+
+	load_dotenv()
+	TOKEN = os.getenv('TOKEN')
+	bot = Bot(TOKEN, parse_mode='MarkdownV2')
+	dp = Dispatcher(bot)
+
+	$0
+
+	if __name__ == '__main__':
+	    executor.start_polling(dp)
+# Dispatcher handlers
+snippet @dp
+	@dp.message_handler(commands=['${1:command}'])
+	$0

@@ -1,0 +1,30 @@
+# Shebang
+snippet #!
+	#!/bin/sh
+snippet #bash
+	#!/usr/bin/env bash
+snippet if
+	if [ $1 ]; then
+		${0:${VISUAL}}
+	fi
+snippet elif
+	elif [ $1 ]; then
+		${0:${VISUAL}}
+snippet wh
+	while [ $1 ]; do
+		${0:${VISUAL}}
+	done
+snippet wht
+	while true; do
+		${0:${VISUAL}}
+	done
+snippet case
+	case ${1:word} in
+		${2:pattern})
+			${0};;
+	esac
+snippet fun
+	${1:function_name}()
+	{
+		$0
+	}

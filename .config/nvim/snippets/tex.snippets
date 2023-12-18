@@ -1,0 +1,94 @@
+#PREAMBLE
+#documentclass without options
+snippet dcl \documentclass{}
+	\\documentclass{${1:class}} ${0}
+#documentclass with options
+snippet dclo \documentclass[]{}
+	\\documentclass[${1:options}]{${2:class}} ${0}
+snippet tmplt "Template"
+	\\documentclass{${1:article}}
+
+	\\usepackage{import}
+	\\usepackage{pdfpages}
+	\\usepackage{transparent}
+	\\usepackage{xcolor}
+	$2
+
+	\\newcommand{\incfig}[2][1]{%
+		    \def\svgwidth{#1\columnwidth}
+		    \import{./figures/}{#2.pdf_tex}
+	}
+	$3
+	\\pdfsuppresswarningpagegroup=1
+
+	\\begin{document}
+		    $0
+	\\end{document}
+
+#DOCUMENT
+# \begin{}...\end{}
+snippet begin \begin{} ... \end{} block
+	\\begin{${1:env}}
+		${0:${VISUAL}}
+	\\end{$1}
+#Formating text: italic, bold, underline, small capital, emphase ..
+snippet ita italic text
+	\\textit{${1:${VISUAL:text}}}${0}
+snippet bf bold face text
+	\\textbf{${1:${VISUAL:text}}}${0}
+snippet under underline text
+	\\underline{${1:${VISUAL:text}}}${0}
+snippet over overline text
+	\\overline{${1:${VISUAL:text}}}${0}
+snippet emp emphasize text
+	\\emph{${1:${VISUAL:text}}}${0}
+snippet sc small caps text
+	\\textsc{${1:${VISUAL:text}}}${0}
+#Choosing font
+snippet sf sans serife text
+	\\textsf{${1:${VISUAL:text}}}${0}
+snippet rm roman font text
+	\\textrm{${1:${VISUAL:text}}}${0}
+snippet tt typewriter (monospace) text
+	\\texttt{${1:${VISUAL:text}}}${0}
+snippet tsub subscripted text
+	\\textsubscript{${1:${VISUAL:text}}}${0}
+snippet tsup superscripted text
+	\\textsuperscript{${1:${VISUAL:text}}}${0}
+#Math font
+snippet mf mathfrak
+	\\mathfrak{${1:${VISUAL:text}}}${0}
+snippet mc mathcal
+	\\mathcal{${1:${VISUAL:text}}}${0}
+snippet ms mathscr
+	\\mathscr{${1:${VISUAL:text}}}${0}
+#delimiter
+snippet lr left right
+	\\left${1} ${0:${VISUAL}} \\right$1
+snippet lr( left( right)
+	\\left( ${0:${VISUAL}} \\right)
+snippet lr| left| right|
+	\\left| ${0:${VISUAL}} \\right|
+snippet lr{ left\{ right\}
+	\\left\\{ ${0:${VISUAL}} \\right\\}
+snippet lr[ left[ right]
+	\\left[ ${0:${VISUAL}} \\right]
+snippet lra langle rangle
+	\\langle ${0:${VISUAL}} \\rangle
+# Code listings
+snippet lst
+	\\begin{listing}[language=${1:language}]
+		${0:${VISUAL}}
+	\\end{listing}
+snippet lsi
+	\\lstinline|${1}| ${0}
+# Hyperlinks
+snippet url
+	\\url{${1}} ${0}
+snippet href
+	\\href{${1}}{${2}} ${0}
+# URL from Clipboard.
+snippet urlc
+	\\url{`@+`} ${0}
+snippet hrefc
+	\\href{`@+`}{${1}} ${0}
