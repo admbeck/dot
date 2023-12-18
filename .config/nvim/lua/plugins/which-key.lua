@@ -7,11 +7,15 @@ return { -- hotkey cheat sheet
   end,
   config = function()
     local wk = require("which-key")
-    -- TODO: Add all other keys
     wk.register({ -- <leader>
-      f = {
-        name = "Telescope"
-      },
+      f = {name = "Telescope"},
+      c = {name = "Compile"},
+      g = {name = "Git"},
+      m = {name = "Nabla"},
+      t = {"Launch file"},
+      v = {name = "Venn"},
+      x = {name = "Trouble"},
+      z = {name = "Visual"}
     }, { prefix = "<leader>" })
   end,
 }

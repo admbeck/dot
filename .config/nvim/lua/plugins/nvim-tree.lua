@@ -61,7 +61,7 @@ return { -- file manager
     {
       "<leader>n",
       "<cmd>NvimTreeToggle<CR>",
-      desc = "Open nvim-tree",
+      desc = "Toggle nvim-tree",
     },
   },
 }
