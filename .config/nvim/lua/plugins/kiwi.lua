@@ -80,7 +80,7 @@ return {
       desc = "Open Wiki index",
     },
     {
-      "<leader>t",
+      "<leader>b",
       function()
         require("kiwi").todo.toggle()
       end,
