@@ -1,3 +1,4 @@
+local WIKIPATH = os.getenv("WIKIPATH") .. "/kiwi"
 return {
   "serenevoid/kiwi.nvim",
   enabled = false,
@@ -7,67 +8,67 @@ return {
   opts = {
     {
       name = "main",
-      path = "/home/beck/docs/notes",
+      path = WIKIPATH,
       wiki = true,
     },
     {
       name = "personal",
-      path = "/home/beck/docs/notes/personal",
+      path = WIKIPATH .. "/personal",
       wiki = true,
     },
     {
       name = "education",
-      path = "/home/beck/docs/notes/edu",
+      path = WIKIPATH .. "/edu",
       wiki = true,
     },
     {
       name = "games",
-      path = "/home/beck/docs/notes/games",
+      path = WIKIPATH .. "/games",
       wiki = true,
     },
     {
       name = "campfire",
-      path = "/home/beck/docs/notes/campfire",
+      path = WIKIPATH .. "/campfire",
       wiki = true,
     },
     {
       name = "work",
-      path = "/home/beck/docs/notes/work",
+      path = WIKIPATH .. "/work",
       wiki = true,
     },
     {
       name = "tech",
-      path = "/home/beck/docs/notes/tech",
+      path = WIKIPATH .. "/tech",
       wiki = true,
     },
     {
       name = "linux",
-      path = "/home/beck/docs/notes/linux",
+      path = WIKIPATH .. "/linux",
       wiki = true,
     },
     {
       name = "windows",
-      path = "/home/beck/docs/notes/windows",
+      path = WIKIPATH .. "/windows",
       wiki = true,
     },
     {
       name = "mac",
-      path = "/home/beck/docs/notes/mac",
+      path = WIKIPATH .. "/mac",
       wiki = true,
     },
     {
       name = "networks",
-      path = "/home/beck/docs/notes/networks",
+      path = WIKIPATH .. "/networks",
       wiki = true,
     },
     {
       name = "cloud",
-      path = "/home/beck/docs/notes/cloud",
+      path = WIKIPATH .. "/cloud",
       wiki = true,
     },
     {
       name = "code",
-      path = "/home/beck/docs/notes/code",
+      path = WIKIPATH .. "/code",
       wiki = true,
     },
   },
