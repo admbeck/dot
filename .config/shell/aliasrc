@@ -33,29 +33,53 @@ alias \
 
 # Colorize commands when possible.
 alias \
-	ls="ls -hN --color=auto --group-directories-first" \
-	grep="grep --color=auto" \
+        ls="ls -hvN --color=auto --group-directories-first" \
 	diff="diff --color=auto" \
+	grep="grep --color=auto" \
 	ccat="highlight --out-format=ansi" \
 	ip="ip -color=auto"
 
 # These common commands are just too long! Abbreviate them.
 alias \
+	p="pacman" \
+	up="yay -Syu" \
 	ka="killall" \
-	g="git" \
 	trem="transmission-remote" \
 	YT="youtube-viewer" \
 	sdn="shutdown -h now" \
 	e="$EDITOR" \
 	v="$EDITOR" \
 	p="pacman" \
-	xi="sudo xbps-install" \
-	xr="sudo xbps-remove -R" \
-	xq="xbps-query" \
-	z="zathura"
+	b="cd .." \
+	ll="ls -l" \
+	la="ls -ah" \
+	lla="ls -lha" \
+	z="zathura" \
+	nsxiv="nsxiv -b" \
+	orphans="pacman -Qtdq" \
+	removeorphans='pacman -Rns $(pacman -Qtdq)' \
+        rcommit='curl -sL https://whatthecommit.com/index.txt'
+
+# git
+alias \
+        g="git" \
+        gst="git status" \
+        ga="git add" \
+        gc="git commit -m" \
+        gp="git push" \
+        gl="git pull" \
+        dotfiles="git --git-dir=/home/beck/.git --work-tree=/"
+
+# network
+alias \
+	publicip="curl ifconfig.me" \
+	dhcp="sudo nmap --script broadcast-dhcp-discover" \
+	dns="cat /etc/resolv.conf"
 
 alias \
 	lf="lfub" \
-	magit="nvim -c MagitOnly" \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
 	weath="less -S ${XDG_CACHE_HOME:-$HOME/.cache}/weatherreport" \
+	weather="curl wttr.in/tashkent" \
+	temps="watch sensors" \
+        t="task +OVERDUE or due:today or due:tomorrow"

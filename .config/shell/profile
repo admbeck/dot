@@ -5,6 +5,7 @@
 
 # Add all directories in `~/.local/bin` to $PATH
 export PATH="$PATH:$(find ~/.local/bin -type d | paste -sd ':' -)"
+export PATH="$PATH:$HOME/.local/bin/statusbar"
 
 unsetopt PROMPT_SP 2>/dev/null
 
@@ -12,11 +13,11 @@ unsetopt PROMPT_SP 2>/dev/null
 export EDITOR="nvim"
 export TERMINAL="st"
 export TERMINAL_PROG="st"
-export BROWSER="librewolf"
+export BROWSER="firefox"
 
 # Change the default crypto/weather monitor sites.
 # export CRYPTOURL="rate.sx"
-# export WTTRURL="wttr.in"
+export WTTRURL="wttr.in/Tashkent"
 
 # ~/ Clean-up:
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -44,6 +45,12 @@ export HISTFILE="$XDG_DATA_HOME/history"
 export MBSYNCRC="$XDG_CONFIG_HOME/mbsync/config"
 export ELECTRUMDIR="$XDG_DATA_HOME/electrum"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
+export LYNX_CFG_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/lynx.cfg"
+export PATH="$HOME/.local/share/perl/bin${PATH:+:${PATH}}"
+export PERL5LIB="$HOME/.local/share/perl/lib/perl5"
+export PERL_LOCAL_LIB_ROOT="$HOME/.local/share/perl"
+export PERL_MB_OPT="--install_base '$HOME/.local/share/perl'"
+export PERL_MM_OPT="INSTALL_BASE=$HOME/.local/share/perl"
 export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
 
 # Other program settings:
@@ -63,6 +70,7 @@ export QT_QPA_PLATFORMTHEME="gtk2"        # Have QT use gtk2 theme.
 export MOZ_USE_XINPUT2=1                  # Mozilla smooth scrolling/touchpads.
 export AWT_TOOLKIT="MToolkit wmname LG3D" # May have to install wmname
 export _JAVA_AWT_WM_NONREPARENTING=1      # Fix for Java applications in dwm
+export DZR_CBC=g4el58wc0zvf9na1		  # dzr
 
 [ ! -f "$XDG_CONFIG_HOME/shell/shortcutrc" ] && setsid -f shortcuts >/dev/null 2>&1
 
