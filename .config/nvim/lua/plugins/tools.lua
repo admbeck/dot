@@ -19,9 +19,7 @@ return {
     },
     config = function()
       require("chatgpt").setup({
-        api_key_cmd = "cat " .. os.getenv("SECRETPATH") .. "/chatgpt-key"
-      })
-      require("which-key").register({
+        api_key_cmd = "cat " .. os.getenv("SECRETPATH") .. "/chatgpt-key",
       })
     end,
     dependencies = {
