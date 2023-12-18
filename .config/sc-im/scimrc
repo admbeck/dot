@@ -1,0 +1,12 @@
+nmap "ZQ" ":q!<cr>"
+nmap "ZZ" ":wq<cr>"
+set autocalc
+set numeric
+set numeric_decimal=0
+set overlap
+set xlsx_readformulas
+set input_bar_bottom
+set half_page_scroll
+set ignorecase
+color "type=HEADINGS fg=BLACK bg=CYAN"
+color "type=CELL_SELECTION fg=BLACK bg=GREEN"
