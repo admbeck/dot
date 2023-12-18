@@ -1,5 +1,6 @@
 [Added Associations]
 inode/directory=org.kde.dolphin.desktop;
+text/html=firefox.desktop;
 x-scheme-handler/geo=openstreetmap-geo-handler.desktop;
 x-scheme-handler/http=firefox.desktop;
 x-scheme-handler/https=firefox.desktop;
@@ -15,6 +16,7 @@ image/gif=img.desktop;
 image/jpeg=img.desktop;
 image/png=img.desktop;
 inode/directory=org.kde.dolphin.desktop;
+text/html=firefox.desktop;
 text/plain=text.desktop;
 text/x-shellscript=text.desktop;
 video/mp4=video.desktop
