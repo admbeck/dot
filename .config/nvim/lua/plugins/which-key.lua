@@ -11,6 +11,7 @@ return { -- hotkey cheat sheet
       f = {name = "Telescope"},
       c = {name = "Compile"},
       g = {name = "Git"},
+      h = {name = "ChatGPT"},
       m = {name = "Nabla"},
       t = {"Launch file"},
       v = {name = "Venn"},
