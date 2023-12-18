@@ -31,7 +31,7 @@ return { -- local wiki
     {
       "<leader>ww",
       "<cmd>VimwikiIndex<CR>",
-      desc = "Open vinwiki"
+      desc = "Open vimwiki"
     },
   },
   init = function()
