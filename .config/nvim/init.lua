@@ -4,4 +4,4 @@ require "core"
 -- shortcuts script. Here leader is ';'.
 -- So ':vs ;cfz' will expand into ':vs /home/<user>/.config/zsh/.zshrc'
 -- if typed fast without the timeout.
--- vim.cmd([[runtime! shortcuts.vim]])
+vim.cmd([[runtime! shortcuts.vim]])
