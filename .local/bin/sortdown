@@ -1,0 +1,33 @@
+#!/bin/sh
+# Script to sort downloads folder
+
+download=$(xdg-user-dir DOWNLOAD)
+
+for dir in doc table img vid aud tar book script iso win; do
+    [ -d $download/$dir ] && continue || mkdir -p $download/$dir
+done
+
+for i in $download/*; do
+
+    case "$i" in
+        *doc|*docx|*odt|*udf       ) mv "$i"   $download/doc    ;;
+        *xls|*xlsx|*ods|*uos|*csv  ) mv "$i"   $download/table  ;;
+        *png|*jpg|*jpeg|*webp|*gif ) mv "$i"   $download/img    ;;
+        *mp4|*webm|*mov|*avi       ) mv "$i"   $download/vid    ;;
+        *mp3|*m4a|*flac|*ogg|*acc  ) mv "$i"   $download/aud    ;;
+        *tar|*zip|*xz|*gz|*rar|*7z ) mv "$i"   $download/tar    ;;
+        *pdf|*epub|*chm|*mobi|*fb2 ) mv "$i"   $download/book   ;;
+        *sh|*py|*lua|*bat|*ps1|pl  ) mv "$i"   $download/script ;;
+        *iso                       ) mv "$i"   $download/iso    ;;
+        *exe|*msi                  ) mv "$i"   $download/win    ;;
+    esac
+
+    input=$(file "$i")
+    fname=${input%%:*}
+    fred=${input#* }
+    sced=${fred%% *}
+
+    case $sced in
+        POSIX|Bourne-Again) mv $fname $download/script/;;
+    esac
+done
