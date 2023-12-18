@@ -5,9 +5,6 @@
 vim.keymap.set("", "<leader>o", ":setlocal spell<CR>",
 { desc = "Turn on spellcheck" })
 
--- check file in spellcheck:
-vim.keymap.set("", "<leader>s", ":!clear && spellcheck -x %<CR>")
-
 -- resizing windows with alt+h,j,k,l
 vim.keymap.set("n", "<M-C-h>", "<C-w><", { desc = "Move left" })
 vim.keymap.set("n", "<M-C-l>", "<C-w>>", { desc = "Move right" })
