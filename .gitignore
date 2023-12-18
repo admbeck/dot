@@ -2,3 +2,5 @@
 .gitignore
 *.sug
 *.spl
+localrc
+.zcompdump
