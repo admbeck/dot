@@ -1,0 +1,16 @@
+#!/bin/bash
+
+sleep 1
+echo 'ROBCO INDUSTRIES (TM) UNIFIED OPERATING SYSTEM' | while IFS="\n" read -r line; do echo "$line" | (while IFS="" read -r -n1 c; do echo -n "$c"; sleep 0.02; done); echo; done
+sleep 0.5
+echo 'COPYRIGHT 2075-2077 ROBCO INDUSTRIES (TM)' | while IFS="\n" read -r line; do echo "$line" | (while IFS="" read -r -n1 c; do echo -n "$c"; sleep 0.02; done); echo; done
+sleep 0.2
+echo ' '
+sleep 0.2
+echo 'ENTER PASSWORD NOW' | while IFS="\n" read -r line; do echo "$line" | (while IFS="" read -r -n1 c; do echo -n "$c"; sleep 0.02; done); echo; done
+sleep 1
+echo '**********' | pv -qL 5
+sleep 0.5
+echo 'ACCESS GRANTED'
+echo ' '
+PS1="> "
