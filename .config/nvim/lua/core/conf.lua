@@ -55,7 +55,7 @@ vim.opt.expandtab = true
 
 -- auto-completion
 vim.opt.wildmode = "longest,list,full"
-vim.opt.completeopt = "menu,menuone,noselect"
+vim.opt.completeopt = ""
 vim.opt.wildmenu = true
 
 -- settings for popup menu
