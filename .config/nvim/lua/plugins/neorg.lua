@@ -10,24 +10,25 @@ return { -- org mode for neovim
   config = function()
     local WIKIPATH = os.getenv("WIKIPATH")
     require("neorg").setup {
-    load = {
-      ["core.defaults"] = {},
-      ["core.completion"] = {
-      config = { engine = "nvim-cmp" },
-      },
-      ["core.integrations.nvim-cmp"] = {},
-      ["core.concealer"] = {},
-      ["core.dirman"] = {
-      config = {
-        workspaces = {
-        notes = WIKIPATH .. "/neorg",
+      load = {
+        ["core.defaults"] = {},
+        ["core.completion"] = {
+          config = { engine = "nvim-cmp" },
         },
-        default_workspace = "notes",
-        autochdir = true,
+        ["core.integrations.nvim-cmp"] = {},
+        ["core.concealer"] = {},
+        ["core.dirman"] = {
+        config = {
+          workspaces = {
+            notes = WIKIPATH .. "/neorg",
+          },
+          default_workspace = "notes",
+          autochdir = true,
+        },
+        },
+        ["core.export.markdown"] = {},
+        ["core.integrations.treesitter"] = {},
       },
-      },
-      ["core.integrations.treesitter"] = {},
-    },
     }
   end,
 }
