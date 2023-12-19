@@ -29,7 +29,7 @@ return {
 
     require("mkdnflow").setup({
       modules = {
-        folds = true,
+        folds = false,
         conceal = false,
       },
       perspective = {

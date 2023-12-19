@@ -161,7 +161,7 @@ return {
       },
     }
   },
-  {
+  { -- cisco highlighting
     "admbeck/cisco.vim",
   },
 }
