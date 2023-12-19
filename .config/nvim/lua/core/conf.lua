@@ -5,7 +5,7 @@
 vim.g.did_install_default_menus = 1
 
 -- leader key
-vim.g.mapleader = ','
+vim.g.mapleader = ","
 
 -- set window title
 vim.opt.title = true
@@ -14,14 +14,14 @@ vim.opt.title = true
 vim.opt.mouse = "a"
 
 -- systemwide clipboard support
-vim.opt.clipboard = 'unnamed,unnamedplus'
+vim.opt.clipboard = "unnamed,unnamedplus"
 
 -- enable ruler and realtive numbers
 vim.wo.number = true
 vim.wo.relativenumber = true
 
 -- enable syntax highlighting
-vim.opt.syntax = 'enable'
+vim.opt.syntax = "enable"
 
 -- turn off highlights when searching
 vim.opt.hlsearch = false
@@ -43,9 +43,9 @@ vim.opt.incsearch = true
 vim.opt.scrolloff = 3
 
 -- set spellfile for spelling
-vim.opt.spelllang = 'en_us,ru'
-vim.opt.spellfile = '/home/beck/.config/nvim/spell/en.utf.add,     \z
-           /home/beck/.config/nvim/spell/ru.utf.add'
+vim.opt.spelllang = "en_us,ru"
+vim.opt.spellfile = "/home/beck/.config/nvim/spell/en.utf.add,     \z
+           /home/beck/.config/nvim/spell/ru.utf.add"
 
 -- change tabs to 4 spaces
 vim.opt.tabstop = 8
@@ -54,8 +54,8 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 -- auto-completion
-vim.opt.wildmode = 'longest,list,full'
-vim.opt.completeopt = 'menu,menuone,noselect'
+vim.opt.wildmode = "longest,list,full"
+vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.wildmenu = true
 
 -- settings for popup menu
@@ -65,24 +65,22 @@ if vim.opt.pumblend ~= nil then
 end
 
 -- use back space to delete
-vim.opt.backspace = 'indent,eol,start'
+vim.opt.backspace = "indent,eol,start"
 
 -- do not use visual or error bells
 vim.opt.visualbell = false
 vim.opt.errorbells = false
 
 -- code folding
-vim.opt.foldmethod = 'expr'
--- vim.opt.foldmethod = "expr"
+vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.wo.foldlevel = 99
 
 -- disable auto-commenting on <CR>
-local no_comments = vim.api.nvim_create_augroup('no_comments', {clear = true})
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = '*',
+local no_comments = vim.api.nvim_create_augroup("no_comments", {clear = true})
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
   group = no_comments,
-  desc = 'remove automatic comment creation on new line',
+  desc = "remove automatic comment creation on new line",
   callback = function()
     vim.bo.formatoptions = vim.bo.formatoptions:gsub("c", "")
     vim.bo.formatoptions = vim.bo.formatoptions:gsub("r", "")
@@ -91,35 +89,35 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 -- ensure files are read as what I want
-local reading_files = vim.api.nvim_create_augroup('reading_files', {clear = true})
-vim.api.nvim_create_autocmd({'BufRead','BufNewFile'}, {
-  pattern = {'/tmp/calcurse*', '~/.calcurse/notes'},
+local reading_files = vim.api.nvim_create_augroup("reading_files", {clear = true})
+vim.api.nvim_create_autocmd({"BufRead","BufNewFile"}, {
+  pattern = {"/tmp/calcurse*", "~/.calcurse/notes"},
   group = reading_files,
-  desc = 'proper markdown identification',
+  desc = "proper markdown identification",
   callback = function()
-    vim.bo.filetype = 'markdown'
+    vim.bo.filetype = "markdown"
     end
 })
-vim.api.nvim_create_autocmd({'BufRead','BufNewFile'}, {
-  pattern = {'*.ms', "*.me", "*.mom", "*.man"},
+vim.api.nvim_create_autocmd({"BufRead","BufNewFile"}, {
+  pattern = {"*.ms", "*.me", "*.mom", "*.man"},
   group = reading_files,
-  desc = 'proper groff identification',
+  desc = "proper groff identification",
   callback = function()
-    vim.bo.filetype = 'groff'
+    vim.bo.filetype = "groff"
     end
 })
-vim.api.nvim_create_autocmd({'BufRead','BufNewFile'}, {
-  pattern = '*.tex',
+vim.api.nvim_create_autocmd({"BufRead","BufNewFile"}, {
+  pattern = "*.tex",
   group = reading_files,
-  desc = 'proper latex identification',
+  desc = "proper latex identification",
   callback = function()
-    vim.bo.filetype = 'tex'
+    vim.bo.filetype = "tex"
     end
 })
 
 -- autocompletion
-vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
-vim.opt.omnifunc = 'syntaxcomplete#Complete'
+vim.opt.completeopt = {"menu", "menuone", "noselect"}
+vim.opt.omnifunc = "syntaxcomplete#Complete"
 
 -- enables 24-bit RGB color in the TUI
 if vim.o.termguicolors ~= nil then
