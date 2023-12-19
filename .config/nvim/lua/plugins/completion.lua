@@ -23,7 +23,7 @@ return {
       "lukas-reineke/cmp-under-comparator",
       "hrsh7th/cmp-omni",
       "hrsh7th/cmp-nvim-lua",
-      "cmp-pandoc-references",
+      "jc-doyle/cmp-pandoc-references",
     },
     config = function()
       local has_words_before = function()
