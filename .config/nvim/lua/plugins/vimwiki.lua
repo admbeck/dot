@@ -1,6 +1,6 @@
 return { -- local wiki
   "vimwiki/vimwiki",
-  -- enabled = false,
+  enabled = false,
   cmd = {
     "VimwikiIndex",
     "VimwikiTabIndex",
