@@ -5,6 +5,7 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim"
   },
+  ft = { "md", "rmd", "markdown" },
   opts = {
     {
       name = "main",
