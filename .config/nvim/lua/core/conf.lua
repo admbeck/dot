@@ -7,6 +7,9 @@ vim.g.did_install_default_menus = 1
 -- leader key
 vim.g.mapleader = ","
 
+-- allow custom markdown
+vim.g.markdown_recommended_style = 0
+
 -- set window title
 vim.opt.title = true
 
