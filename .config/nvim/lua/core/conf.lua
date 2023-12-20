@@ -77,6 +77,7 @@ vim.opt.errorbells = false
 -- code folding
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevelstart=99
 
 -- disable auto-commenting on <CR>
 local no_comments = vim.api.nvim_create_augroup("no_comments", {clear = true})
