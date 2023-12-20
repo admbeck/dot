@@ -42,10 +42,6 @@ return {
       })
     end
   },
-  { -- predefined window layouts
-    "folke/edgy.nvim",
-    event = "VeryLazy",
-  },
   { -- inactive portions dimmer
     "folke/twilight.nvim",
     cmd = "Twilight",
