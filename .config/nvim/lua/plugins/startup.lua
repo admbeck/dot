@@ -27,9 +27,10 @@ return {
           dashboard.button( "w", "  word",     ":Telescope live_grep<CR>"),
           dashboard.button( "r", "  recent",   ":Telescope oldfiles<CR>"),
           dashboard.button( "g", "  branch",   ":Flog<CR>"),
+          dashboard.button( "l", "󰒲  lazy",     ":Lazy<CR>"),
           dashboard.button( "t", "  todo",     ":TodoTelescope keywords=TODO,FIX,BUG,FIXIT,ISSUE,FIXME,ERROR,WARNING,INFO,HINT,TEST,HACK,PERF,NOTE<CR>"),
           dashboard.button( "m", "󱌣  mason",    ":Mason<CR>"),
-          dashboard.button( "s", "  settings",   ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>"),
+          dashboard.button( "s", "  settings", ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>"),
           dashboard.button( "q", "󰩈  quit",     ":qa<CR>"),
         }
 
