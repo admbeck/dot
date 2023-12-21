@@ -61,9 +61,6 @@ return {
   { -- zenmode
     "folke/zen-mode.nvim",
     cmd = "ZenMode",
-    opts = {
-      backdrop = 1,
-    },
     keys = {
       {
         "<leader>zz",
@@ -76,17 +73,31 @@ return {
         desc = "Readable prose",
       },
     },
-    config = function()
-       local augroup = vim.api.nvim_create_augroup("zenmodedefault", {clear = true})
-       vim.api.nvim_create_autocmd({"BufRead","BufNewFile"}, {
-         pattern = "/tmp/neomutt*",
-         group = augroup,
-         callback = function()
-           vim.cmd([[ZenMode | set bg=light]])
-           vim.keymap.set("", "ZZ", ":ZenMode|x!<CR>")
-           vim.keymap.set("", "ZQ", ":ZenMode|q!<CR>")
-           end
-       })
+    opts = {
+      window = {
+        backdrop = 1,
+        options = {
+          signcolumn = "no",
+          number = false,
+          relativenumber = false,
+          cursorline = false,
+          cursorcolumn = false,
+          foldcolumn = "0",
+          list = false,
+        },
+      },
+    },
+    init = function()
+      local augroup = vim.api.nvim_create_augroup("zenmodedefault", {clear = true})
+      vim.api.nvim_create_autocmd({"BufRead","BufNewFile"}, {
+        pattern = "/tmp/neomutt*",
+        group = augroup,
+        callback = function()
+          vim.cmd([[ZenMode | set bg=light]])
+          vim.keymap.set("", "ZZ", ":ZenMode|x!<CR>")
+          vim.keymap.set("", "ZQ", ":ZenMode|q!<CR>")
+          end
+      })
     end
   },
   { -- hints for better vim-like workflow
