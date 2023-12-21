@@ -56,6 +56,9 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
+-- don't push signcolumn to the right
+vim.opt.signcolumn = "number"
+
 -- auto-completion
 vim.opt.wildmode = "longest,list,full"
 vim.opt.completeopt = ""
