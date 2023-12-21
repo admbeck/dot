@@ -1,15 +1,16 @@
-return {
+return { -- mkdnflow.nvim: vimwiki substitute
   "jakewvincent/mkdnflow.nvim",
   -- enabled = false,
   ft = { "md", "rmd", "markdown" },
   config = function()
     local cmp = require("cmp")
     local wk = require("which-key")
-    cmp.setup({
+    table.insert(cmp.get_config(), {
       sources = cmp.config.sources({
         { name = "mkdnflow" },
-      })
+      }),
     })
+    cmp.setup(cmp.get_config())
     wk.register({
       w = {
         name = "Wiki",
@@ -25,7 +26,7 @@ return {
           C = "New Column ◄",
         },
       },
-    }, {prefix = "<leader>"})
+    }, { prefix = "<leader>" })
 
     require("mkdnflow").setup({
       modules = {
@@ -42,7 +43,7 @@ return {
           text = text:gsub("[:/]", "-")
           text = text:lower()
           return text
-        end
+        end,
       },
       new_file_template = {
         use_template = true,
@@ -61,8 +62,8 @@ return {
         MkdnTableNewRowAbove = { "n", "<leader>wiR" },
         MkdnTableNewColAfter = { "n", "<leader>wic" },
         MkdnTableNewColBefore = { "n", "<leader>wiC" },
-        MkdnCreateLinkFromClipboard = {{"n", "v"}, "<leader>wp"},
+        MkdnCreateLinkFromClipboard = { { "n", "v" }, "<leader>wp" },
       },
     })
-  end
+  end,
 }

@@ -1,4 +1,4 @@
-return { -- local wiki
+return { -- vimwiki: local wiki
   "vimwiki/vimwiki",
   enabled = false,
   cmd = {
@@ -26,12 +26,12 @@ return { -- local wiki
     {
       "<leader>wu",
       "<cmd>call vimwiki#base#linkify()<CR>",
-      desc = "Extract webpage title to markdown link"
+      desc = "Extract webpage title to markdown link",
     },
     {
       "<leader>ww",
       "<cmd>VimwikiIndex<CR>",
-      desc = "Open vimwiki"
+      desc = "Open vimwiki",
     },
   },
   init = function()
@@ -48,21 +48,21 @@ return { -- local wiki
         w = "Open index page",
         z = "Open link in new H split",
         [","] = {
-            name = "Diary",
-            i = "Update diary index",
-            m = "Open tomorrow's diary entry",
-            t = "Open diary entry in new tab",
-            w = "Open today's diary entry",
-            y = "Open yesterday's diary entry",
+          name = "Diary",
+          i = "Update diary index",
+          m = "Open tomorrow's diary entry",
+          t = "Open diary entry in new tab",
+          w = "Open today's diary entry",
+          y = "Open yesterday's diary entry",
         },
       },
     }, { prefix = "<leader>" })
     vim.g.vimwiki_ext2syntax = {
-      [".md"]       = "markdown",
-      [".Rmd"]      = "markdown",
-      [".rmd"]      = "markdown",
-      [".wiki"]     = "markdown",
-      [".mdown"]    = "markdown",
+      [".md"] = "markdown",
+      [".Rmd"] = "markdown",
+      [".rmd"] = "markdown",
+      [".wiki"] = "markdown",
+      [".mdown"] = "markdown",
       [".markdown"] = "markdown",
     }
 
@@ -91,7 +91,7 @@ return { -- local wiki
         links_space_char = "_",
         auto_diary_index = 1,
         auto_generate_link = 1,
-        auto_generate_tags = 1
+        auto_generate_tags = 1,
       },
       { -- EDUCATION
         name = "education",
@@ -105,7 +105,7 @@ return { -- local wiki
         links_space_char = "_",
         auto_diary_index = 1,
         auto_generate_link = 1,
-        auto_generate_tags = 1
+        auto_generate_tags = 1,
       },
       { -- PERSONAL
         name = "personal",
@@ -119,7 +119,7 @@ return { -- local wiki
         links_space_char = "_",
         auto_diary_index = 1,
         auto_generate_link = 1,
-        auto_generate_tags = 1
+        auto_generate_tags = 1,
       },
       { -- GAMES
         name = "games",
@@ -260,7 +260,7 @@ return { -- local wiki
         auto_diary_index = 1,
         auto_generate_link = 1,
         auto_generate_tags = 1,
-      }
+      },
     }
-  end
+  end,
 }

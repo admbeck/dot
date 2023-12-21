@@ -1,4 +1,4 @@
-return { -- org mode for neovim
+return { -- neorg: org mode for neovim
   "nvim-neorg/neorg",
   -- enabled = false,
   requires = {
@@ -9,7 +9,7 @@ return { -- org mode for neovim
   build = ":Neorg sync-parsers",
   config = function()
     local WIKIPATH = os.getenv("WIKIPATH")
-    require("neorg").setup {
+    require("neorg").setup({
       load = {
         ["core.defaults"] = {},
         ["core.completion"] = {
@@ -18,17 +18,17 @@ return { -- org mode for neovim
         ["core.integrations.nvim-cmp"] = {},
         ["core.concealer"] = {},
         ["core.dirman"] = {
-        config = {
-          workspaces = {
-            notes = WIKIPATH .. "/neorg",
+          config = {
+            workspaces = {
+              notes = WIKIPATH .. "/neorg",
+            },
+            default_workspace = "notes",
+            autochdir = true,
           },
-          default_workspace = "notes",
-          autochdir = true,
-        },
         },
         ["core.export.markdown"] = {},
         ["core.integrations.treesitter"] = {},
       },
-    }
+    })
   end,
 }

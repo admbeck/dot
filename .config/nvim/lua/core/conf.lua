@@ -80,10 +80,10 @@ vim.opt.errorbells = false
 -- code folding
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldlevelstart=99
+vim.opt.foldlevelstart = 99
 
 -- disable auto-commenting on <CR>
-local no_comments = vim.api.nvim_create_augroup("no_comments", {clear = true})
+local no_comments = vim.api.nvim_create_augroup("no_comments", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "*",
   group = no_comments,
@@ -92,38 +92,38 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.bo.formatoptions = vim.bo.formatoptions:gsub("c", "")
     vim.bo.formatoptions = vim.bo.formatoptions:gsub("r", "")
     vim.bo.formatoptions = vim.bo.formatoptions:gsub("o", "")
-    end
+  end,
 })
 
 -- ensure files are read as what I want
-local reading_files = vim.api.nvim_create_augroup("reading_files", {clear = true})
-vim.api.nvim_create_autocmd({"BufRead","BufNewFile"}, {
-  pattern = {"/tmp/calcurse*", "~/.calcurse/notes"},
+local reading_files = vim.api.nvim_create_augroup("reading_files", { clear = true })
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "/tmp/calcurse*", "~/.calcurse/notes" },
   group = reading_files,
   desc = "proper markdown identification",
   callback = function()
     vim.bo.filetype = "markdown"
-    end
+  end,
 })
-vim.api.nvim_create_autocmd({"BufRead","BufNewFile"}, {
-  pattern = {"*.ms", "*.me", "*.mom", "*.man"},
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.ms", "*.me", "*.mom", "*.man" },
   group = reading_files,
   desc = "proper groff identification",
   callback = function()
     vim.bo.filetype = "groff"
-    end
+  end,
 })
-vim.api.nvim_create_autocmd({"BufRead","BufNewFile"}, {
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "*.tex",
   group = reading_files,
   desc = "proper latex identification",
   callback = function()
     vim.bo.filetype = "tex"
-    end
+  end,
 })
 
 -- autocompletion
-vim.opt.completeopt = {"menu", "menuone", "noselect"}
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.omnifunc = "syntaxcomplete#Complete"
 
 -- enables 24-bit RGB color in the TUI

@@ -1,4 +1,4 @@
-return { -- file manager
+return { -- nvim-tree.lua: file manager
   "nvim-tree/nvim-tree.lua",
   dependencies = {
     "nvim-lua/plenary.nvim",
@@ -31,7 +31,7 @@ return { -- file manager
             local r_number = tonumber(string.match(r, "^[0-9]+"))
 
             if l_number ~= r_number then
-                return l_number < r_number
+              return l_number < r_number
             end
           elseif string.sub(l, 1, 1) ~= string.sub(r, 1, 1) then
             return l < r
@@ -47,14 +47,14 @@ return { -- file manager
     },
     view = {
       adaptive_size = true,
-      width = { min=20, max = 40 },
+      width = { min = 20, max = 40 },
     },
     renderer = {
       group_empty = true,
     },
     filters = {
       dotfiles = true,
-      custom = { "^.git$" }
+      custom = { "^.git$" },
     },
   },
   keys = {

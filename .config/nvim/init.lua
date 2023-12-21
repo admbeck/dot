@@ -1,4 +1,4 @@
-require "core"
+require("core")
 -- bm-dirs shortcut integration
 -- Load command shortcuts generated from bm-dirs and bm-files via
 -- shortcuts script. Here leader is ';'.

@@ -1,14 +1,14 @@
 return {
-  { -- snippets
+  { -- nvim-snippy: snippets
     "dcampos/nvim-snippy",
     init = function()
       -- variables for snippets
       vim.g.snips_author = "Zakhidov Beck"
-      vim.g.snips_email  = "admbeck@outlook.com"
+      vim.g.snips_email = "admbeck@outlook.com"
       vim.g.snips_github = "https://github.com/admbeck"
-    end
+    end,
   },
-  { -- autocompletion
+  { -- nvim-cmp: autocompletion
     "hrsh7th/nvim-cmp",
     event = "VeryLazy",
     dependencies = {
@@ -47,7 +47,7 @@ return {
           -- documentation = cmp.config.window.bordered(snippy),
         },
         view = {
-          entries = { name = "custom", selection_order = "near_cursor" }
+          entries = { name = "custom", selection_order = "near_cursor" },
         },
         mapping = {
           ["<Tab>"] = cmp.mapping(function(fallback)
@@ -82,12 +82,13 @@ return {
           { name = "nvim_lsp" },
           { name = "snippy" },
           { name = "buffer" },
-          { name = "async_path "},
+          { name = "async_path " },
           { name = "calc" },
-          { name = "omni",
+          {
+            name = "omni",
             option = {
-              disable_omnifuncs = { "v.lua.vim.lsp.omnifunc" }
-            }
+              disable_omnifuncs = { "v.lua.vim.lsp.omnifunc" },
+            },
           },
           { name = "nvim_lua" },
           { name = "pandoc_references" },
@@ -102,7 +103,7 @@ return {
             cmp.config.compare.sort_text,
             cmp.config.compare.length,
             cmp.config.compare.order,
-          }
+          },
         },
       })
 
@@ -110,19 +111,23 @@ return {
       cmp.setup.cmdline({ "/", "?" }, {
         mapping = cmp.mapping.preset.cmdline(),
         sources = {
-          { name = "buffer" }
-        }
+          { name = "buffer" },
+        },
       })
 
       -- Use cmdline & path source for ":" (if you enabled `native_menu`, this won't work anymore).
       cmp.setup.cmdline(":", {
         mapping = cmp.mapping.preset.cmdline(),
         sources = cmp.config.sources({
-          { name = "path" }
+          { name = "path" },
         }, {
-          { name = "cmdline" }
-        })
+          { name = "cmdline" },
+        }),
       })
     end,
+  },
+  {
+    "vim-scripts/dbext.vim",
+    event = "VeryLazy",
   },
 }

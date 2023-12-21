@@ -1,4 +1,4 @@
-return { -- hotkey cheat sheet
+return { -- whick-key.nvim: hotkey cheat sheet
   "folke/which-key.nvim",
   event = "VeryLazy",
   init = function()
@@ -8,15 +8,15 @@ return { -- hotkey cheat sheet
   config = function()
     local wk = require("which-key")
     wk.register({ -- <leader>
-      f = {name = "Telescope"},
-      c = {name = "Compile"},
-      g = {name = "Git"},
-      h = {name = "ChatGPT"},
-      m = {name = "Nabla"},
-      t = {"Launch file"},
-      v = {name = "Venn"},
-      x = {name = "Trouble"},
-      z = {name = "Visual"}
+      f = { name = "Telescope" },
+      c = { name = "Compile" },
+      g = { name = "Git" },
+      h = { name = "ChatGPT" },
+      m = { name = "Nabla" },
+      t = { "Launch file" },
+      v = { name = "Venn" },
+      x = { name = "Trouble" },
+      z = { name = "Visual" },
     }, { prefix = "<leader>" })
   end,
 }

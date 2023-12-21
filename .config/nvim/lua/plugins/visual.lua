@@ -1,22 +1,22 @@
 return {
-  { -- provides you due for the date string in <2022-01-10>
+  { -- due.nvim: provides you due for the date string in <2022-01-10>
     "Nfrid/due.nvim",
     event = "VeryLazy",
     config = function()
-          local autodue = vim.api.nvim_create_augroup('autodue', {clear = true})
-          vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-              pattern = "*",
-              group = autodue,
-              desc = "autorecount due",
-              callback = function()
-                  require("due_nvim").redraw(0)
-              end
-          })
+      local autodue = vim.api.nvim_create_augroup("autodue", { clear = true })
+      vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+        pattern = "*",
+        group = autodue,
+        desc = "autorecount due",
+        callback = function()
+          require("due_nvim").redraw(0)
+        end,
+      })
 
-          require("due_nvim").setup()
+      require("due_nvim").setup()
     end,
   },
-  { -- automatically restore file's cursor position
+  { -- restore_view.vim: automatically restore file's cursor position
     "vim-scripts/restore_view.vim",
   },
   { -- colors #fbf in the editor
@@ -29,9 +29,9 @@ return {
     },
     config = function()
       require("colorizer").setup()
-    end
+    end,
   },
-  { -- unique styles for filetypes
+  { -- styler.nvim: unique styles for filetypes
     "folke/styler.nvim",
     config = function()
       require("styler").setup({
@@ -40,14 +40,14 @@ return {
           -- help = { colorscheme = "catppuccin-mocha", background = "dark" },
         },
       })
-    end
+    end,
   },
-  { -- inactive portions dimmer
+  { -- twilight.nvim: inactive portions dimmer
     "folke/twilight.nvim",
     cmd = "Twilight",
     opts = {
       dimming = {
-        alpha = 0.25
+        alpha = 0.25,
       },
     },
     keys = {
@@ -58,7 +58,7 @@ return {
       },
     },
   },
-  { -- zenmode
+  { -- zen-mode.nvim: zenmode
     "folke/zen-mode.nvim",
     cmd = "ZenMode",
     keys = {
@@ -88,24 +88,24 @@ return {
       },
     },
     init = function()
-      local augroup = vim.api.nvim_create_augroup("zenmodedefault", {clear = true})
-      vim.api.nvim_create_autocmd({"BufRead","BufNewFile"}, {
+      local augroup = vim.api.nvim_create_augroup("zenmodedefault", { clear = true })
+      vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
         pattern = "/tmp/neomutt*",
         group = augroup,
         callback = function()
           vim.cmd([[ZenMode | set bg=light]])
           vim.keymap.set("", "ZZ", ":ZenMode|x!<CR>")
           vim.keymap.set("", "ZQ", ":ZenMode|q!<CR>")
-          end
+        end,
       })
-    end
+    end,
   },
-  { -- hints for better vim-like workflow
+  { -- hardtime.nvim: hints for better vim-like workflow
     "m4xshen/hardtime.nvim",
     event = "VeryLazy",
     dependencies = {
       "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim"
+      "nvim-lua/plenary.nvim",
     },
     opts = {
       -- disable messages for movement keys
@@ -124,9 +124,9 @@ return {
       },
       restriction_mode = "hint",
       disable_mouse = false,
-    }
+    },
   },
-  { -- fancy highlighting for comments
+  { -- todo-comments.nvim: fancy highlighting for comments
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     lazy = false,
@@ -135,40 +135,40 @@ return {
       {
         "<leader>}",
         function()
-          require('todo-comments').jump_next()
+          require("todo-comments").jump_next()
         end,
         desc = "Next todo comment",
       },
       {
         "<leader>{",
         function()
-          require('todo-comments').jump_prev()
+          require("todo-comments").jump_prev()
         end,
         desc = "Previous todo comment",
       },
     },
   },
-  { -- math visualization
+  { -- nabla.nvim: math visualization
     "jbyuki/nabla.nvim",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     keys = {
       {
         "<leader>ma",
         function()
-          require('nabla').popup()
+          require("nabla").popup()
         end,
         desc = "Preview in popup",
       },
       {
         "<leader>mm",
         function()
-          require('nabla').toggle_virt()
+          require("nabla").toggle_virt()
         end,
         desc = "Toggle preview",
       },
-    }
+    },
   },
-  { -- cisco highlighting
+  { -- cisco.vim: cisco highlighting
     "admbeck/cisco.vim",
   },
 }

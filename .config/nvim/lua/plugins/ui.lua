@@ -1,10 +1,10 @@
 return {
-  { -- code aware navigation
+  { -- aerial.nvim: code aware navigation
     "stevearc/aerial.nvim",
     opts = {},
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
-      "nvim-tree/nvim-web-devicons"
+      "nvim-tree/nvim-web-devicons",
     },
     keys = {
       {
@@ -24,7 +24,7 @@ return {
       },
     },
   },
-  { -- training aid for nvim-surround
+  { -- surround-ui.nvim: training aid for nvim-surround
     "roobert/surround-ui.nvim",
     dependencies = {
       "kylechui/nvim-surround",
@@ -34,7 +34,7 @@ return {
       root_key = "S",
     },
   },
-  { -- new ui for messages, cmdline and popupmenu
+  { -- noice.nvim: new ui for messages, cmdline and popupmenu
     "folke/noice.nvim",
     enabled = true,
     event = "VeryLazy",
@@ -44,26 +44,26 @@ return {
     },
     config = function()
       local search = vim.api.nvim_get_hl_by_name("Search", true)
-      vim.api.nvim_set_hl(0, 'TransparentSearch', { fg = search.foreground })
+      vim.api.nvim_set_hl(0, "TransparentSearch", { fg = search.foreground })
 
       local help = vim.api.nvim_get_hl_by_name("IncSearch", true)
-      vim.api.nvim_set_hl(0, 'TransparentHelp', { fg = help.foreground })
+      vim.api.nvim_set_hl(0, "TransparentHelp", { fg = help.foreground })
 
-      local cmdGroup = 'DevIconLua'
+      local cmdGroup = "DevIconLua"
       local noice_cmd_types = {
-        CmdLine    = cmdGroup,
-        Input      = cmdGroup,
-        Lua        = cmdGroup,
-        Filter     = cmdGroup,
-        Rename     = cmdGroup,
+        CmdLine = cmdGroup,
+        Input = cmdGroup,
+        Lua = cmdGroup,
+        Filter = cmdGroup,
+        Rename = cmdGroup,
         Substitute = "Define",
-        Help       = "TransparentHelp",
-        Search     = "TransparentSearch"
+        Help = "TransparentHelp",
+        Search = "TransparentSearch",
       }
 
       for type, hl in pairs(noice_cmd_types) do
         vim.api.nvim_set_hl(0, "NoiceCmdlinePopupBorder" .. type, { link = hl })
-        vim.api.nvim_set_hl(0, "NoiceCmdlineIcon" .. type,        { link = hl })
+        vim.api.nvim_set_hl(0, "NoiceCmdlineIcon" .. type, { link = hl })
       end
       vim.api.nvim_set_hl(0, "NoiceConfirmBorder", { link = cmdGroup })
 
@@ -78,7 +78,7 @@ return {
           },
         },
         popupmenu = {
-          backend = "cmp"
+          backend = "cmp",
         },
         lsp = {
           -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
@@ -89,15 +89,15 @@ return {
           },
         },
         presets = {
-          bottom_search = true,         -- use a classic bottom cmdline for search
-          command_palette = true,       -- position the cmdline and popupmenu together
+          bottom_search = true, -- use a classic bottom cmdline for search
+          command_palette = true, -- position the cmdline and popupmenu together
           long_message_to_split = true, -- long messages will be sent to a split
-          lsp_doc_border = true,        -- add a border to hover docs and signature help
+          lsp_doc_border = true, -- add a border to hover docs and signature help
         },
       })
     end,
   },
-  { -- new ui for notifications
+  { -- nvim-notify: new ui for notifications
     "rcarriga/nvim-notify",
     event = "VeryLazy",
     module = true,
@@ -109,6 +109,10 @@ return {
         end,
         desc = "Notification history",
       },
-    }
+    },
+    opts = {
+      render = "compact",
+      top_down = false,
+    },
   },
 }
