@@ -1,4 +1,4 @@
-return {
+return { -- trouble.nvim: UI for LSP errors
   "folke/trouble.nvim",
   cmd = "Trouble",
   dependencies = {
@@ -7,12 +7,12 @@ return {
   },
   opts = {},
   keys = {
-     {
-       "<leader>xx",
-       function()
-         require("trouble").open()
-       end,
-       desc = "Open Trouble",
+    {
+      "<leader>xx",
+      function()
+        require("trouble").open()
+      end,
+      desc = "Open Trouble",
     },
     {
       "<leader>xw",
@@ -22,32 +22,32 @@ return {
       desc = "Workspace diagnostics",
     },
     {
-       "<leader>xd",
-       function()
-         require("trouble").open("document_diagnostics")
-       end,
-       desc = "Document diagnostics",
+      "<leader>xd",
+      function()
+        require("trouble").open("document_diagnostics")
+      end,
+      desc = "Document diagnostics",
     },
     {
-       "<leader>xq",
-       function()
-         require("trouble").open("quickfix")
-       end,
-       desc = "Quickfix",
+      "<leader>xq",
+      function()
+        require("trouble").open("quickfix")
+      end,
+      desc = "Quickfix",
     },
     {
-       "<leader>xl",
-       function()
-         require("trouble").open("loclist")
-       end,
-       desc = "Loclist",
+      "<leader>xl",
+      function()
+        require("trouble").open("loclist")
+      end,
+      desc = "Loclist",
     },
     {
-       "gR",
-       function()
-         require("trouble").open("lsp_references")
-       end,
-       desc = "Lsp references",
+      "gR",
+      function()
+        require("trouble").open("lsp_references")
+      end,
+      desc = "Lsp references",
     },
   },
 }

@@ -1,4 +1,4 @@
-return { -- fuzzy finder
+return { -- telescope.nvim: fuzzy finder
   "nvim-telescope/telescope.nvim",
   branch = "0.1.x",
   cmd = "Telescope",
@@ -10,7 +10,7 @@ return { -- fuzzy finder
         "^%.git$",
         "node_modules",
         "^%.?venv$",
-        "^%.?env$"
+        "^%.?env$",
       },
     },
   },

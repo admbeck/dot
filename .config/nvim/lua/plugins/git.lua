@@ -1,9 +1,9 @@
 return {
-  { --  git wrapper
+  { -- vim-fugitive: git wrapper
     "tpope/vim-fugitive",
     event = "VeryLazy",
   },
-  { -- git branch visualization
+  { -- vim-flog: git branch visualization
     "rbong/vim-flog",
     lazy = true,
     cmd = { "Flog", "Flogsplit", "Floggit" },
@@ -11,7 +11,7 @@ return {
       "tpope/vim-fugitive",
     },
   },
-  { -- git ui
+  { -- lazygit.nvim: git ui
     "kdheepak/lazygit.nvim",
     event = "VeryLazy",
     dependencies = {

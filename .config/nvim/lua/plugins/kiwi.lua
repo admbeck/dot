@@ -1,9 +1,9 @@
 local WIKIPATH = os.getenv("WIKIPATH") .. "/kiwi"
-return {
+return { -- kiwi.nvim: vimwiki substitute
   "serenevoid/kiwi.nvim",
   enabled = false,
   dependencies = {
-    "nvim-lua/plenary.nvim"
+    "nvim-lua/plenary.nvim",
   },
   ft = { "md", "rmd", "markdown" },
   opts = {
@@ -87,7 +87,7 @@ return {
         require("kiwi").todo.toggle()
       end,
       desc = "Toggle Markdown Task",
-    }
+    },
   },
-  lazy = true
+  lazy = true,
 }

@@ -1,4 +1,4 @@
-return { -- context-aware highlighting
+return { -- nvim-treesitter: context-aware highlighting
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
   config = function()
@@ -45,5 +45,5 @@ return { -- context-aware highlighting
         },
       },
     })
-  end
+  end,
 }
