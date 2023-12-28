@@ -22,7 +22,6 @@ return {
   },
   { -- mason-tool-installer: linter and other mason plugins installer
     "WhoIsSethDaniel/mason-tool-installer.nvim",
-    event = "VeryLazy",
     opts = {
       ensure_installed = {
         "black",

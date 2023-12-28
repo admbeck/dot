@@ -88,12 +88,13 @@ return {
       },
     },
     init = function()
-      local augroup = vim.api.nvim_create_augroup("zenmodedefault", { clear = true })
+      local zenmodedefault = vim.api.nvim_create_augroup("zenmodedefault", { clear = true })
       vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
         pattern = "/tmp/neomutt*",
-        group = augroup,
+        group = zenmodedefault,
         callback = function()
-          vim.cmd([[ZenMode | set bg=light]])
+          vim.cmd([[set bg=light]])
+          require("zen-mode").toggle()
           vim.keymap.set("", "ZZ", ":ZenMode|x!<CR>")
           vim.keymap.set("", "ZQ", ":ZenMode|q!<CR>")
         end,

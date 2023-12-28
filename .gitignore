@@ -4,3 +4,7 @@
 *.spl
 localrc
 .zcompdump
+shortcutrc
+shortcuts.vim
+shortcutrc
+zshnameddirrc
