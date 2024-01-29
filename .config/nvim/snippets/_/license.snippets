@@ -203,7 +203,7 @@ snippet MIT
 	${0}
 snippet APACHE
 	${1:One line to give the program's name and a brief description}
-	Copyright `strftime("%Y")` ${2:`g:snips_author`}
+	Copyright `&enc[:2] == "utf" ? "©" : "(c)"` `strftime("%Y")` ${2:`g:snips_author`}
 
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
