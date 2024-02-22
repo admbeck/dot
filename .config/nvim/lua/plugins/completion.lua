@@ -126,9 +126,4 @@ return {
       })
     end,
   },
-  {
-    "vim-scripts/dbext.vim",
-    enabled = false,
-    event = "VeryLazy",
-  },
 }
