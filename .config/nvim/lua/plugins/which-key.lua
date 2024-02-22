@@ -11,7 +11,10 @@ return { -- whick-key.nvim: hotkey cheat sheet
       c = { name = "Compile" },
       d = { name = "Debug" },
       f = { name = "Telescope" },
-      g = { name = "Git" },
+      g = {
+        name = "Git",
+        h = "Signs",
+      },
       h = { name = "ChatGPT" },
       m = { name = "Nabla" },
       t = { "Launch file" },
