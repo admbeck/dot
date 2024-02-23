@@ -17,6 +17,7 @@ return { -- whick-key.nvim: hotkey cheat sheet
       },
       h = { name = "ChatGPT" },
       m = { name = "Nabla" },
+      q = { name = "Session"},
       t = { "Launch file" },
       v = { name = "Venn" },
       x = {
