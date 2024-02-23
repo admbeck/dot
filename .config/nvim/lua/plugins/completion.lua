@@ -15,7 +15,7 @@ return {
       "neovim/nvim-lspconfig",
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
-      "FelipeLema/cmp-async-path",
+      "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
       "dcampos/nvim-snippy",
       "dcampos/cmp-snippy",
@@ -35,6 +35,8 @@ return {
       local cmp = require("cmp")
       local snippy = require("snippy")
 
+      vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
+
       cmp.setup({
         snippet = {
           -- snippet engine
@@ -48,6 +50,9 @@ return {
         },
         view = {
           entries = { name = "custom", selection_order = "near_cursor" },
+        },
+        completion = {
+          completeopt = "menu,menuone,noinsert",
         },
         mapping = {
           ["<Tab>"] = cmp.mapping(function(fallback)
@@ -72,17 +77,23 @@ return {
             end
           end, { "i", "s" }),
 
+          ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+          ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
           ["<C-b>"] = cmp.mapping.scroll_docs(-4),
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
           ["<C-Space>"] = cmp.mapping.complete(),
           ["<C-e>"] = cmp.mapping.abort(),
           ["<CR>"] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+          ["<C-CR>"] = function(fallback)
+            cmp.abort()
+            fallback()
+          end,
         },
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
-          { name = "snippy" },
+          { name = "path" },
           { name = "buffer" },
-          { name = "async_path " },
+          { name = "snippy" },
           { name = "calc" },
           {
             name = "omni",
@@ -93,6 +104,11 @@ return {
           { name = "nvim_lua" },
           { name = "pandoc_references" },
         }),
+        experimental = {
+          ghost_text = {
+            hl_group = "CmpGhostText",
+          },
+        },
         sorting = {
           comparators = {
             cmp.config.compare.offset,
@@ -138,7 +154,7 @@ return {
     opts = {
       enable = false,
       mode = "cursor",
-      max_lines = 3
+      max_lines = 3,
     },
     keys = {
       {
