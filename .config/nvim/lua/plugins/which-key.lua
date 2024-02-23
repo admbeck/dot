@@ -8,14 +8,22 @@ return { -- whick-key.nvim: hotkey cheat sheet
   config = function()
     local wk = require("which-key")
     wk.register({ -- <leader>
-      f = { name = "Telescope" },
       c = { name = "Compile" },
-      g = { name = "Git" },
+      d = { name = "Debug" },
+      f = { name = "Telescope" },
+      g = {
+        name = "Git",
+        h = "Signs",
+      },
       h = { name = "ChatGPT" },
       m = { name = "Nabla" },
+      q = { name = "Session"},
       t = { "Launch file" },
       v = { name = "Venn" },
-      x = { name = "Trouble" },
+      x = {
+        name = "Trouble",
+        n = "Noice",
+      },
       z = { name = "Visual" },
     }, { prefix = "<leader>" })
   end,

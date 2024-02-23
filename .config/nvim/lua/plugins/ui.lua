@@ -96,6 +96,16 @@ return {
         },
       })
     end,
+    -- stylua: ignore
+    keys = {
+      { "<S-Enter>", function() require("noice").redirect(vim.fn.getcmdline()) end, mode = "c", desc = "Redirect Cmdline" },
+      { "<leader>xnl", function() require("noice").cmd("last") end, desc = "Noice Last Message" },
+      { "<leader>xnh", function() require("noice").cmd("history") end, desc = "Noice History" },
+      { "<leader>xna", function() require("noice").cmd("all") end, desc = "Noice All" },
+      { "<leader>xnd", function() require("noice").cmd("dismiss") end, desc = "Dismiss All" },
+      { "<c-f>", function() if not require("noice.lsp").scroll(4) then return "<c-f>" end end, silent = true, expr = true, desc = "Scroll forward", mode = {"i", "n", "s"} },
+      { "<c-b>", function() if not require("noice.lsp").scroll(-4) then return "<c-b>" end end, silent = true, expr = true, desc = "Scroll backward", mode = {"i", "n", "s"}},
+    },
   },
   { -- nvim-notify: new ui for notifications
     "rcarriga/nvim-notify",
@@ -109,10 +119,56 @@ return {
         end,
         desc = "Notification history",
       },
+      {
+        "<leader>xnn",
+        function()
+          require("notify").dismiss({ silent = true, pending = true })
+        end,
+        desc = "Dismiss all Notifications",
+      },
     },
     opts = {
       render = "compact",
       top_down = false,
+    },
+  },
+  { -- indent-blankline.nvim: indent guides
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    event = "VeryLazy",
+    keys = {
+      {
+        "<leader>zi",
+        function()
+          require("ibl").setup_buffer(0, {
+            enabled = not require("ibl.config").get_config(0).enabled,
+          })
+        end,
+        desc = "Toggle indent lines",
+      },
+    },
+    opts = {
+      indent = {
+        char = "│",
+        tab_char = "│",
+      },
+      scope = { enabled = false },
+      exclude = {
+        filetypes = {
+          "help",
+          "alpha",
+          "dashboard",
+          "neo-tree",
+          "Trouble",
+          "trouble",
+          "lazy",
+          "mason",
+          "notify",
+          "toggleterm",
+          "lazyterm",
+          "markdown",
+        },
+      },
     },
   },
 }
