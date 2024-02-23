@@ -19,7 +19,10 @@ return { -- whick-key.nvim: hotkey cheat sheet
       m = { name = "Nabla" },
       t = { "Launch file" },
       v = { name = "Venn" },
-      x = { name = "Trouble" },
+      x = {
+        name = "Trouble",
+        n = "Noice",
+      },
       z = { name = "Visual" },
     }, { prefix = "<leader>" })
   end,
