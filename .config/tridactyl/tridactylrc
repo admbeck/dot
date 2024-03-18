@@ -22,6 +22,9 @@ colorscheme gruvbox
 " hide ignore in ignore mode
 set modeindicatormodes {"ignore":"false"}
 
+" hide mode indicator on certain websites
+seturl youtube.com modeindicator false
+
 " Don't run Tridactyl on some web sites because it doesn't work well, or
 " because the web site has its own keybindings.
 autocmd DocStart mail.google.com mode ignore
