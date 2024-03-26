@@ -5,6 +5,8 @@ return { -- mkdnflow.nvim: vimwiki substitute
   config = function()
     local cmp = require("cmp")
     local wk = require("which-key")
+    -- autosave markdown files
+    vim.api.nvim_create_autocmd("FileType", {pattern = "markdown", command = "set awa"})
     table.insert(cmp.get_config(), {
       sources = cmp.config.sources({
         { name = "mkdnflow" },
@@ -32,6 +34,7 @@ return { -- mkdnflow.nvim: vimwiki substitute
       modules = {
         folds = false,
         conceal = false,
+        cmp = true,
       },
       perspective = {
         priority = "current",
