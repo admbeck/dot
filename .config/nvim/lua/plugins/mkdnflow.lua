@@ -1,18 +1,20 @@
 return { -- mkdnflow.nvim: vimwiki substitute
   "jakewvincent/mkdnflow.nvim",
   -- enabled = false,
+  requires = {
+    "hrsh7th/nvim-cmp",
+  },
   ft = { "md", "rmd", "markdown" },
   config = function()
     local cmp = require("cmp")
-    local wk = require("which-key")
-    -- autosave markdown files
-    vim.api.nvim_create_autocmd("FileType", {pattern = "markdown", command = "set awa"})
-    table.insert(cmp.get_config(), {
-      sources = cmp.config.sources({
-        { name = "mkdnflow" },
-      }),
+    local cmp_config = cmp.get_config()
+    table.insert(cmp_config.sources, {
+      group_index = 1,
+      name = "mkdnflow",
     })
     cmp.setup(cmp.get_config())
+
+    local wk = require("which-key")
     wk.register({
       w = {
         name = "Wiki",
@@ -29,6 +31,9 @@ return { -- mkdnflow.nvim: vimwiki substitute
         },
       },
     }, { prefix = "<leader>" })
+
+    -- autosave markdown files
+    vim.api.nvim_create_autocmd("FileType", {pattern = "markdown", command = "set awa"})
 
     require("mkdnflow").setup({
       modules = {
