@@ -34,6 +34,7 @@ return { -- mkdnflow.nvim: vimwiki substitute
 
     -- autosave markdown files
     vim.api.nvim_create_autocmd("FileType", {pattern = "markdown", command = "set awa"})
+    vim.api.nvim_create_autocmd("BufLeave", {pattern = "*.md", command = "silent! wall"})
 
     require("mkdnflow").setup({
       modules = {
