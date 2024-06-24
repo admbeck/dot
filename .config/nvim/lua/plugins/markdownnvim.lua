@@ -6,4 +6,11 @@ return { -- markdown.nvim: concealement and pretty notes
     headings = { "● ", "○ ", "▶ ", "◆ ", "◇ ", "⤷ " },
     bullets = { "● ", "○ ", "▶ ", "◆ " },
   },
+  keys = {
+    {
+      "<leader>zm",
+      "<cmd>lua require('render-markdown').toggle()<CR>",
+      desc = "toggle markdown concealement",
+    },
+  },
 }
