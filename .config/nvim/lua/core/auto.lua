@@ -12,10 +12,10 @@ vim.api.nvim_create_autocmd("BufEnter", {
 
 -- preserve undo even after closing neovim
 vim.cmd([[
-  if !isdirectory($HOME . '/.local/share/vim/undo')
-    call mkdir($HOME . '/.local/share/vim/undo', 'p', 0700)
+  if !isdirectory($HOME . '/.local/share/nvim/undo')
+    call mkdir($HOME . '/.local/share/nvim/undo', 'p', 0700)
   endif
-  set undodir=~/.local/share/vim/undo
+  set undodir=~/.local/share/nvim/undo
   set undofile
   set undolevels=10000
 ]])

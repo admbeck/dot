@@ -8,3 +8,4 @@ shortcutrc
 shortcuts.vim
 shortcutrc
 zshnameddirrc
+.local/share/nvim
