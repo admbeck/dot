@@ -3,6 +3,7 @@ return { -- markdown.nvim: concealement and pretty notes
   requires = { "nvim-treesitter/nvim-treesitter" },
   ft = "markdown",
   opts = {
-    headings = { "◉ ", "◆ ", "▶ ", "○ ", "◇ ", "⤷ " },
+    headings = { "● ", "○ ", "▶ ", "◆ ", "◇ ", "⤷ " },
+    bullets = { "● ", "○ ", "▶ ", "◆ " },
   },
 }
