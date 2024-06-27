@@ -152,6 +152,15 @@ return {
               mode = 1,
               max_length = vim.o.columns,
             },
+            {
+              function()
+                vim.o.showtabline = 1
+                return ""
+                --HACK: lualine will set &showtabline to 2 if you have configured
+                --lualine for displaying tabline. We want to restore the default
+                --behavior here.
+              end,
+            },
           },
           lualine_c = {},
           lualine_x = {},
@@ -171,9 +180,6 @@ return {
           "trouble",
         },
       })
-
-      -- only show tabline with more than 1 tab
-      vim.cmd("set showtabline=1")
     end,
   },
 }

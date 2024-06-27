@@ -9,3 +9,4 @@ shortcuts.vim
 shortcutrc
 zshnameddirrc
 .local/share/nvim
+lazy-lock.json
