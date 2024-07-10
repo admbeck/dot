@@ -10,20 +10,12 @@ return { -- whick-key.nvim: hotkey cheat sheet
     wk.register({ -- <leader>
       c = { name = "Compile" },
       d = { name = "Debug" },
-      f = { name = "Telescope" },
       g = {
         name = "Git",
         h = "Signs",
       },
-      h = { name = "ChatGPT" },
-      m = { name = "Nabla" },
       q = { name = "Session"},
       t = { "Launch file" },
-      v = { name = "Venn" },
-      x = {
-        name = "Trouble",
-        n = "Noice",
-      },
       z = { name = "Visual" },
     }, { prefix = "<leader>" })
   end,

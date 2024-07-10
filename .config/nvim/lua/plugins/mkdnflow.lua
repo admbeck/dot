@@ -5,6 +5,58 @@ return { -- mkdnflow.nvim: vimwiki substitute
     "hrsh7th/nvim-cmp",
   },
   ft = { "md", "rmd", "markdown" },
+  keys = {
+    {
+      "<leader>w",
+      "",
+      desc = "Wiki",
+    },
+    {
+      "<leader>wp",
+      "<cmd>MkdnCreateLinkFromClipboard<CR>",
+      desc = "Create link from clipboard",
+    },
+    {
+      "<leader>wn",
+      "<cmd>MkdnUpdateNumbering<CR>",
+      desc = "Update numbering",
+    },
+    {
+      "<leader>wf",
+      "<cmd>MkdnFoldSection<CR>",
+      desc = "Fold section",
+    },
+    {
+      "<leader>wF",
+      "<cmd>MkdnUnfoldSection<CR>",
+      desc = "Unfold section",
+    },
+    {
+      "<leader>wi",
+      "",
+      desc = "Insert into table",
+    },
+    {
+      "<leader>wir",
+      "<cmd>MkdnTableNewRowBelow<CR>",
+      desc = "New Row ▼",
+    },
+    {
+      "<leader>wiR",
+      "<cmd>MkdnTableNewRowAbove<CR>",
+      desc = "New Row ▲",
+    },
+    {
+      "<leader>wic",
+      "<cmd>MkdnTableNewColAfter<CR>",
+      desc = "New Column ►",
+    },
+    {
+      "<leader>wiC",
+      "<cmd>MkdnTableNewColBefore<CR>",
+      desc = "New Column ◄",
+    },
+  },
   config = function()
     local cmp = require("cmp")
     local cmp_config = cmp.get_config()
@@ -14,27 +66,9 @@ return { -- mkdnflow.nvim: vimwiki substitute
     })
     cmp.setup(cmp.get_config())
 
-    local wk = require("which-key")
-    wk.register({
-      w = {
-        name = "Wiki",
-        p = "Create link from clipboard",
-        n = "Update numbering",
-        f = "Fold section",
-        F = "Unfold section",
-        i = {
-          name = "Insert into table",
-          r = "New Row ▼",
-          R = "New Row ▲",
-          c = "New Column ►",
-          C = "New Column ◄",
-        },
-      },
-    }, { prefix = "<leader>" })
-
     -- autosave markdown files
-    vim.api.nvim_create_autocmd("FileType", {pattern = "markdown", command = "set awa"})
-    vim.api.nvim_create_autocmd("BufLeave", {pattern = "*.md", command = "silent! wall"})
+    vim.api.nvim_create_autocmd("FileType", { pattern = "markdown", command = "set awa" })
+    vim.api.nvim_create_autocmd("BufLeave", { pattern = "*.md", command = "silent! wall" })
 
     require("mkdnflow").setup({
       modules = {

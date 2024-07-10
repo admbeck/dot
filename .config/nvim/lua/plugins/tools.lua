@@ -11,6 +11,11 @@ return {
     "jbyuki/venn.nvim",
     keys = {
       {
+        "<leader>v",
+        "",
+        desc = "Venn"
+      },
+      {
         "<leader>vn",
         function()
           Toggle_venn_diag()
