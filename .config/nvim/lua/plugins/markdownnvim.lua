@@ -1,6 +1,8 @@
 return { -- markdown.nvim: concealement and pretty notes
   "MeanderingProgrammer/markdown.nvim",
-  requires = { "nvim-treesitter/nvim-treesitter" },
+  dependencies = {
+    "nvim-treesitter/nvim-treesitter",
+  },
   ft = "markdown",
   opts = {
     -- https://neovim.io/doc/user/treesitter.html - reference for highlights
@@ -17,7 +19,7 @@ return { -- markdown.nvim: concealement and pretty notes
       custom = {
         todo = { -- pending
           rendered = "󰍷 ",
-          highlight = "@markup.link.label"
+          highlight = "@markup.link.label",
         },
         canceled = {
           raw = "[_]",

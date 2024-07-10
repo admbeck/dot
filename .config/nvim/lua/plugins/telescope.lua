@@ -3,7 +3,9 @@ return { -- telescope.nvim: fuzzy finder
   branch = "0.1.x",
   cmd = "Telescope",
   module = true,
-  dependencies = { "nvim-lua/plenary.nvim" },
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+  },
   opts = {
     defaults = {
       file_ignore_patterns = {

@@ -1,6 +1,6 @@
 return { -- mkdnflow.nvim: vimwiki substitute
   "jakewvincent/mkdnflow.nvim",
-  requires = {
+  dependencies = {
     "hrsh7th/nvim-cmp",
   },
   ft = { "md", "rmd", "markdown" },
@@ -91,7 +91,7 @@ return { -- mkdnflow.nvim: vimwiki substitute
       mappings = {
         MkdnFoldSection = false,
         MkdnUnfoldSection = false,
-        MkdnNewListItem = {"i", "<CR>"},
+        MkdnNewListItem = { "i", "<CR>" },
         MkdnUpdateNumbering = { "n", "<leader>wn" },
         MkdnTableNewRowBelow = { "n", "<leader>wir" },
         MkdnTableNewRowAbove = { "n", "<leader>wiR" },
