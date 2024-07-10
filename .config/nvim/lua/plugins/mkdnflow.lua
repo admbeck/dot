@@ -1,6 +1,5 @@
 return { -- mkdnflow.nvim: vimwiki substitute
   "jakewvincent/mkdnflow.nvim",
-  -- enabled = false,
   requires = {
     "hrsh7th/nvim-cmp",
   },
@@ -20,16 +19,6 @@ return { -- mkdnflow.nvim: vimwiki substitute
       "<leader>wn",
       "<cmd>MkdnUpdateNumbering<CR>",
       desc = "Update numbering",
-    },
-    {
-      "<leader>wf",
-      "<cmd>MkdnFoldSection<CR>",
-      desc = "Fold section",
-    },
-    {
-      "<leader>wF",
-      "<cmd>MkdnUnfoldSection<CR>",
-      desc = "Unfold section",
     },
     {
       "<leader>wi",
@@ -72,13 +61,15 @@ return { -- mkdnflow.nvim: vimwiki substitute
 
     require("mkdnflow").setup({
       modules = {
-        folds = false,
         conceal = false,
         cmp = true,
       },
       perspective = {
         priority = "current",
         fallback = "first",
+      },
+      foldtext = {
+        object_count_icon_set = "nerdfont",
       },
       links = {
         transform_explicit = function(text)
@@ -98,8 +89,9 @@ return { -- mkdnflow.nvim: vimwiki substitute
         },
       },
       mappings = {
-        MkdnFoldSection = { "n", "<leader>wf" },
-        MkdnUnfoldSection = { "n", "<leader>wF" },
+        MkdnFoldSection = false,
+        MkdnUnfoldSection = false,
+        MkdnNewListItem = {"i", "<CR>"},
         MkdnUpdateNumbering = { "n", "<leader>wn" },
         MkdnTableNewRowBelow = { "n", "<leader>wir" },
         MkdnTableNewRowAbove = { "n", "<leader>wiR" },
