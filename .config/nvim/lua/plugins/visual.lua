@@ -154,6 +154,11 @@ return {
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     keys = {
       {
+        "<leader>m",
+        "",
+        desc = "Math",
+      },
+      {
         "<leader>ma",
         function()
           require("nabla").popup()

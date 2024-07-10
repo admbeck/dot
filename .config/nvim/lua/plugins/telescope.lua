@@ -16,6 +16,11 @@ return { -- telescope.nvim: fuzzy finder
   },
   keys = {
     {
+      "<leader>f",
+      "",
+      desc = "Telescope",
+    },
+    {
       "<leader>ff",
       function()
         require("telescope.builtin").find_files()

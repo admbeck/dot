@@ -8,6 +8,11 @@ return { -- trouble.nvim: UI for LSP errors
   opts = {},
   keys = {
     {
+      "<leader>x",
+      "",
+      desc = "Trouble",
+    },
+    {
       "<leader>xx",
       function()
         require("trouble").open()

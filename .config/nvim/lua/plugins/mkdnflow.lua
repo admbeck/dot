@@ -1,10 +1,51 @@
 return { -- mkdnflow.nvim: vimwiki substitute
   "jakewvincent/mkdnflow.nvim",
-  -- enabled = false,
   requires = {
     "hrsh7th/nvim-cmp",
   },
   ft = { "md", "rmd", "markdown" },
+  keys = {
+    {
+      "<leader>w",
+      "",
+      desc = "Wiki",
+    },
+    {
+      "<leader>wp",
+      "<cmd>MkdnCreateLinkFromClipboard<CR>",
+      desc = "Create link from clipboard",
+    },
+    {
+      "<leader>wn",
+      "<cmd>MkdnUpdateNumbering<CR>",
+      desc = "Update numbering",
+    },
+    {
+      "<leader>wi",
+      "",
+      desc = "Insert into table",
+    },
+    {
+      "<leader>wir",
+      "<cmd>MkdnTableNewRowBelow<CR>",
+      desc = "New Row ▼",
+    },
+    {
+      "<leader>wiR",
+      "<cmd>MkdnTableNewRowAbove<CR>",
+      desc = "New Row ▲",
+    },
+    {
+      "<leader>wic",
+      "<cmd>MkdnTableNewColAfter<CR>",
+      desc = "New Column ►",
+    },
+    {
+      "<leader>wiC",
+      "<cmd>MkdnTableNewColBefore<CR>",
+      desc = "New Column ◄",
+    },
+  },
   config = function()
     local cmp = require("cmp")
     local cmp_config = cmp.get_config()
@@ -14,37 +55,21 @@ return { -- mkdnflow.nvim: vimwiki substitute
     })
     cmp.setup(cmp.get_config())
 
-    local wk = require("which-key")
-    wk.register({
-      w = {
-        name = "Wiki",
-        p = "Create link from clipboard",
-        n = "Update numbering",
-        f = "Fold section",
-        F = "Unfold section",
-        i = {
-          name = "Insert into table",
-          r = "New Row ▼",
-          R = "New Row ▲",
-          c = "New Column ►",
-          C = "New Column ◄",
-        },
-      },
-    }, { prefix = "<leader>" })
-
     -- autosave markdown files
-    vim.api.nvim_create_autocmd("FileType", {pattern = "markdown", command = "set awa"})
-    vim.api.nvim_create_autocmd("BufLeave", {pattern = "*.md", command = "silent! wall"})
+    vim.api.nvim_create_autocmd("FileType", { pattern = "markdown", command = "set awa" })
+    vim.api.nvim_create_autocmd("BufLeave", { pattern = "*.md", command = "silent! wall" })
 
     require("mkdnflow").setup({
       modules = {
-        folds = false,
         conceal = false,
         cmp = true,
       },
       perspective = {
         priority = "current",
         fallback = "first",
+      },
+      foldtext = {
+        object_count_icon_set = "nerdfont",
       },
       links = {
         transform_explicit = function(text)
@@ -64,8 +89,9 @@ return { -- mkdnflow.nvim: vimwiki substitute
         },
       },
       mappings = {
-        MkdnFoldSection = { "n", "<leader>wf" },
-        MkdnUnfoldSection = { "n", "<leader>wF" },
+        MkdnFoldSection = false,
+        MkdnUnfoldSection = false,
+        MkdnNewListItem = {"i", "<CR>"},
         MkdnUpdateNumbering = { "n", "<leader>wn" },
         MkdnTableNewRowBelow = { "n", "<leader>wir" },
         MkdnTableNewRowAbove = { "n", "<leader>wiR" },
