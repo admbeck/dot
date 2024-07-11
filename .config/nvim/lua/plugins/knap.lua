@@ -7,6 +7,7 @@ return { -- knap: latex/markdown previewer
         require("knap").process_once()
       end,
       desc = "Process document, refresh view",
+      ft = "markdown",
     },
     {
       "<F6>",

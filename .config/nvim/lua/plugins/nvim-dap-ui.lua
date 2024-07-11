@@ -2,6 +2,7 @@ return { -- nvim-dap-ui: ui for nvim-dap
   "rcarriga/nvim-dap-ui",
   dependencies = {
     "mfussenegger/nvim-dap",
+    "nvim-neotest/nvim-nio",
   },
   keys = {
     {

@@ -8,21 +8,21 @@ return { -- persistence.nvim: session management
       function()
         require("persistence").load()
       end,
-      desc = "Restore Session",
+      desc = "Restore session",
     },
     {
       "<leader>ql",
       function()
         require("persistence").load({ last = true })
       end,
-      desc = "Restore Last Session",
+      desc = "Restore last session",
     },
     {
       "<leader>qd",
       function()
         require("persistence").stop()
       end,
-      desc = "Don't Save Current Session",
+      desc = "Don't save current session",
     },
   },
 }

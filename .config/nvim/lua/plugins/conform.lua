@@ -1,13 +1,38 @@
 return { -- conform.nvim: automatic formatter
   "stevearc/conform.nvim",
-  event = { "BufReadPre", "BufNewFile" },
+  event = "LspAttach",
   cmd = { "ConformInfo" },
+  keys = {
+    {
+      "<leader>F",
+      "",
+      desc = "Format"
+    },
+    {
+      "<leader>Ff",
+      function()
+        require("conform").format({
+          lsp_fallback = true,
+          timeout_ms = 500,
+        })
+      end,
+      desc = "Format buffer with formatter",
+    },
+  },
   opts = {
     formatters_by_ft = {
-      javascript = { { "prettierd", "prettier" } },
-      typescript = { { "prettierd", "prettier" } },
-      html = { { "prettierd", "prettier" } },
-      css = { { "prettierd", "prettier" } },
+      javascript = {
+        { "prettierd", "prettier" },
+      },
+      typescript = {
+        { "prettierd", "prettier" },
+      },
+      html = {
+        { "prettierd", "prettier" },
+      },
+      css = {
+        { "prettierd", "prettier" },
+      },
       markdown = { "markdownlint-cli2" },
       lua = { "stylua" },
       python = { "black" },
@@ -27,18 +52,6 @@ return { -- conform.nvim: automatic formatter
       shfmt = {
         prepend_args = { "-i", "4" },
       },
-    },
-  },
-  keys = {
-    {
-      "<leader>cf",
-      function()
-        require("conform").format({
-          lsp_fallback = true,
-          timeout_ms = 500,
-        })
-      end,
-      desc = "Format buffer",
     },
   },
 }

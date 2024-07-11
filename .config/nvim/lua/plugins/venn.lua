@@ -5,6 +5,7 @@ return { -- venn.nvim: venn diagram drawer
       "<leader>v",
       "",
       desc = "Venn",
+      ft = { "markdown", "text" },
     },
     {
       "<leader>vn",
@@ -13,6 +14,7 @@ return { -- venn.nvim: venn diagram drawer
       end,
       noremap = true,
       desc = "Toggle venn mode",
+      ft = { "markdown", "text" },
     },
   },
   config = function()

@@ -1,13 +1,13 @@
 return { -- aerial.nvim: code aware navigation
   "stevearc/aerial.nvim",
-  opts = {},
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
     "nvim-tree/nvim-web-devicons",
   },
+  opts = {},
   keys = {
     {
-      "<leader>a",
+      "<leader>za",
       "<cmd>AerialToggle!<CR>",
       desc = "Aerial navigation",
     },

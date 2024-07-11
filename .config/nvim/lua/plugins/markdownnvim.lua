@@ -4,6 +4,14 @@ return { -- markdown.nvim: concealement and pretty notes
     "nvim-treesitter/nvim-treesitter",
   },
   ft = "markdown",
+  keys = {
+    {
+      "<leader>zm",
+      "<cmd>lua require('render-markdown').toggle()<CR>",
+      desc = "Toggle markdown concealement",
+      ft = "markdown",
+    },
+  },
   opts = {
     -- https://neovim.io/doc/user/treesitter.html - reference for highlights
     link = {
@@ -42,13 +50,6 @@ return { -- markdown.nvim: concealement and pretty notes
           highlight = "@comment.error",
         },
       },
-    },
-  },
-  keys = {
-    {
-      "<leader>zm",
-      "<cmd>lua require('render-markdown').toggle()<CR>",
-      desc = "Toggle markdown concealement",
     },
   },
 }

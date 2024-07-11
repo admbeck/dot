@@ -25,7 +25,7 @@ return { -- nvim-lspconfig: language server configs
   },
   keys = {
     {
-      "<leader>l",
+      "<leader>Fa",
       function()
         vim.lsp.buf.code_action()
       end,
