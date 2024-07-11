@@ -89,9 +89,9 @@ return { -- nvim-cmp: autocompletion
         { name = "path" },
       }),
       experimental = {
-        ghost_text = {
-          hl_group = "CmpGhostText",
-        },
+        -- ghost_text = {
+        --   hl_group = "CmpGhostText",
+        -- },
       },
       sorting = {
         comparators = {
