@@ -6,7 +6,7 @@ return { -- lazygit.nvim: git ui
   },
   keys = {
     {
-      "<leader>gg",
+      "<leader>gt",
       "<cmd>LazyGitCurrentFile<CR>",
       desc = "LazyGit",
     },

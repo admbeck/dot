@@ -1,13 +1,21 @@
 return { -- conform.nvim: automatic formatter
   "stevearc/conform.nvim",
-  event = { "BufReadPre", "BufNewFile" },
+  event = "LspAttach",
   cmd = { "ConformInfo" },
   opts = {
     formatters_by_ft = {
-      javascript = { { "prettierd", "prettier" } },
-      typescript = { { "prettierd", "prettier" } },
-      html = { { "prettierd", "prettier" } },
-      css = { { "prettierd", "prettier" } },
+      javascript = {
+        { "prettierd", "prettier" },
+      },
+      typescript = {
+        { "prettierd", "prettier" },
+      },
+      html = {
+        { "prettierd", "prettier" },
+      },
+      css = {
+        { "prettierd", "prettier" },
+      },
       markdown = { "markdownlint-cli2" },
       lua = { "stylua" },
       python = { "black" },

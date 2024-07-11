@@ -1,4 +1,4 @@
-return { -- due.nvim: provides you due for the date string in <2035-01-10>
+return { -- due.nvim: provides you due for the date string in <2074-08-10>
   "Nfrid/due.nvim",
   event = "VeryLazy",
   config = function()

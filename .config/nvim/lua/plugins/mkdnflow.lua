@@ -61,7 +61,7 @@ return { -- mkdnflow.nvim: vimwiki substitute
 
     require("mkdnflow").setup({
       modules = {
-        conceal = false,
+        conceal = true,
         cmp = true,
       },
       perspective = {

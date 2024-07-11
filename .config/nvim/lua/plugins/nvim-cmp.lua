@@ -9,21 +9,18 @@ return { -- nvim-cmp: autocompletion
     "hrsh7th/cmp-cmdline",
     "dcampos/nvim-snippy",
     "dcampos/cmp-snippy",
-    "hrsh7th/cmp-calc",
     "lukas-reineke/cmp-under-comparator",
-    "hrsh7th/cmp-omni",
     "hrsh7th/cmp-nvim-lua",
-    "jc-doyle/cmp-pandoc-references",
   },
   config = function()
+    local cmp = require("cmp")
+    local snippy = require("snippy")
+
     local has_words_before = function()
       unpack = unpack or table.unpack
       local line, col = unpack(vim.api.nvim_win_get_cursor(0))
       return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
     end
-
-    local cmp = require("cmp")
-    local snippy = require("snippy")
 
     vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
 
@@ -42,6 +39,7 @@ return { -- nvim-cmp: autocompletion
         entries = { name = "custom", selection_order = "near_cursor" },
       },
       completion = {
+        keyword_length = 1,
         completeopt = "menu,menuone,noselect,noinsert",
       },
       mapping = {
@@ -85,12 +83,10 @@ return { -- nvim-cmp: autocompletion
       },
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
-        { name = "path" },
-        { name = "buffer" },
         { name = "snippy" },
-        { name = "calc" },
         { name = "nvim_lua" },
-        { name = "pandoc_references" },
+        { name = "buffer" },
+        { name = "path" },
       }),
       experimental = {
         ghost_text = {
