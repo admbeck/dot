@@ -2,6 +2,11 @@ return { -- nvim-dap: debugger
   "mfussenegger/nvim-dap",
   keys = {
     {
+      "<leader>d",
+      "",
+      desc = "Debug",
+    },
+    {
       "<leader>dB",
       function()
         require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))

@@ -14,49 +14,23 @@ return { -- lualine.nvim: fast statusline
 
     require("lualine").setup({
       options = {
-        icons_enabled = true,
-        theme = "auto",
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
-        -- component_separators = { left = "", right = ""},
-        -- section_separators = { left = "", right = "" },
-        disabled_filetypes = {
-          statusline = {},
-          winbar = {},
-        },
-        ignore_focus = {},
-        always_divide_middle = true,
+        disabled_filetypes = { "alpha", "dashboard" },
         globalstatus = true,
-        refresh = {
-          statusline = 1000,
-          tabline = 1000,
-          winbar = 1000,
-        },
       },
       sections = {
-        lualine_a = {
-          {
-            "mode",
-            --[[ function ()
-              return mode_map[vim.api.nvim_get_mode().mode] or "__"
-            end ]]
-          },
-        },
-        lualine_b = {
-          "filesize",
-        },
+        lualine_a = { "mode" },
+        lualine_b = { "filesize" },
         lualine_c = {
           {
             "filetype",
             colored = false,
             icon_only = true,
-            -- icon = { align = "left" },
             padding = { left = 1, right = 1 },
           },
           {
             "filename",
-            file_status = true,
-            shorting_target = 40,
             path = 1,
             symbols = {
               modified = "[+]",
@@ -73,12 +47,8 @@ return { -- lualine.nvim: fast statusline
             cond = require("noice").api.statusline.mode.has,
             color = { fg = "#ff9e64" },
           },
-          {
-            "diff",
-          },
-          {
-            "diagnostics",
-          },
+          { "diff" },
+          { "diagnostics" },
           {
             function()
               local space_pat = [[\v^ +]]

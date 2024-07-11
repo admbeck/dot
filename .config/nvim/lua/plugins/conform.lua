@@ -2,6 +2,23 @@ return { -- conform.nvim: automatic formatter
   "stevearc/conform.nvim",
   event = "LspAttach",
   cmd = { "ConformInfo" },
+  keys = {
+    {
+      "<leader>F",
+      "",
+      desc = "Format"
+    },
+    {
+      "<leader>Ff",
+      function()
+        require("conform").format({
+          lsp_fallback = true,
+          timeout_ms = 500,
+        })
+      end,
+      desc = "Format buffer with formatter",
+    },
+  },
   opts = {
     formatters_by_ft = {
       javascript = {
@@ -35,18 +52,6 @@ return { -- conform.nvim: automatic formatter
       shfmt = {
         prepend_args = { "-i", "4" },
       },
-    },
-  },
-  keys = {
-    {
-      "<leader>cf",
-      function()
-        require("conform").format({
-          lsp_fallback = true,
-          timeout_ms = 500,
-        })
-      end,
-      desc = "Format buffer",
     },
   },
 }

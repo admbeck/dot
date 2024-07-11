@@ -7,7 +7,7 @@ return { -- aerial.nvim: code aware navigation
   opts = {},
   keys = {
     {
-      "<leader>a",
+      "<leader>za",
       "<cmd>AerialToggle!<CR>",
       desc = "Aerial navigation",
     },

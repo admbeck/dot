@@ -5,7 +5,7 @@ return { -- nabla.nvim: math visualization
     {
       "<leader>m",
       "",
-      desc = "Math",
+      desc = "Markdown",
     },
     {
       "<leader>ma",

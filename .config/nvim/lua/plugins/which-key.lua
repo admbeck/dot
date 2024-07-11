@@ -8,7 +8,6 @@ return { -- whick-key.nvim: hotkey cheat sheet
   config = function()
     require("which-key").register({ -- <leader>
       c = { name = "Compile" },
-      d = { name = "Debug" },
       g = { name = "Git" },
       q = { name = "Session" },
       t = { "Launch file" },

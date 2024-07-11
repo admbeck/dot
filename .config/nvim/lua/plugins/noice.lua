@@ -64,7 +64,7 @@ return { -- noice.nvim: new ui for messages, cmdline and popupmenu
     {
       "<leader>xn",
       "",
-      desc = "Noice",
+      desc = "Notifications",
     },
     {
       "<S-Enter>",
@@ -72,35 +72,35 @@ return { -- noice.nvim: new ui for messages, cmdline and popupmenu
         require("noice").redirect(vim.fn.getcmdline())
       end,
       mode = "c",
-      desc = "Redirect Cmdline",
+      desc = "Redirect notifications to Cmdline",
     },
     {
       "<leader>xnl",
       function()
         require("noice").cmd("last")
       end,
-      desc = "Noice Last Message",
+      desc = "Show last message",
     },
     {
       "<leader>xnh",
       function()
         require("noice").cmd("history")
       end,
-      desc = "Noice History",
+      desc = "Notification history",
     },
     {
       "<leader>xna",
       function()
         require("noice").cmd("all")
       end,
-      desc = "Noice All",
+      desc = "Show all cmdline outputs",
     },
     {
       "<leader>xnd",
       function()
         require("noice").cmd("dismiss")
       end,
-      desc = "Dismiss All",
+      desc = "Dismiss all notifications",
     },
     {
       "<c-f>",

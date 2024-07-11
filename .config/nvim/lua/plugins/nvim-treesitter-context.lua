@@ -13,7 +13,7 @@ return { -- nvim-treesitter-context: Show context of the current function
       function()
         require("treesitter-context").toggle()
       end,
-      desc = "Toggle Treesitter Context",
+      desc = "Show context of current function",
     },
   },
 }

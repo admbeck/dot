@@ -3,21 +3,26 @@ return { -- nvim-lint: linter
   event = { "BufReadPre", "BufNewFile" },
   keys = {
     {
-      "<leader>cl",
+      "<leader>Fl",
+      "",
+      desc = "Linter"
+    },
+    {
+      "<leader>Flt",
       function()
         require("lint").try_lint()
       end,
       desc = "Try linting current file",
     },
     {
-      "<leader>ck",
+      "<leader>Flr",
       function()
         vim.diagnostic.reset(nil, 0)
       end,
       desc = "Reset linting for current file",
     },
     {
-      "<leader>cx",
+      "<leader>Fld",
       function()
         local ft = vim.filetype.match({ buf = 0 })
         require("lint").linters_by_ft[ft] = {}
