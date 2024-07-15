@@ -13,6 +13,7 @@ return { -- nabla.nvim: math visualization
         require("nabla").popup()
       end,
       desc = "Preview in popup",
+      ft = "markdown",
     },
     {
       "<leader>mm",
@@ -20,6 +21,7 @@ return { -- nabla.nvim: math visualization
         require("nabla").toggle_virt()
       end,
       desc = "Toggle preview",
+      ft = "markdown",
     },
   },
 }

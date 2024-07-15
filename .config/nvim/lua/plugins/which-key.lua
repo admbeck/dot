@@ -6,12 +6,12 @@ return { -- whick-key.nvim: hotkey cheat sheet
     vim.o.timeoutlen = 300
   end,
   config = function()
-    require("which-key").register({ -- <leader>
-      c = { name = "Compile" },
-      g = { name = "Git" },
-      q = { name = "Session" },
-      t = { "Launch file" },
-      z = { name = "Visual" },
-    }, { prefix = "<leader>" })
+    require("which-key").add({
+    { "<leader>c", group = "Compile" },
+    { "<leader>g", group = "Git" },
+    { "<leader>q", group = "Session" },
+    { "<leader>t", group = "Launch file" },
+    { "<leader>z", group = "Visual" },
+  })
   end,
 }
