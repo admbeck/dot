@@ -14,6 +14,9 @@ return { -- markdown.nvim: concealement and pretty notes
   },
   opts = {
     -- https://neovim.io/doc/user/treesitter.html - reference for highlights
+    anti_conceal = {
+      enabled = false,
+    },
     link = {
       hyperlink = "",
     },
