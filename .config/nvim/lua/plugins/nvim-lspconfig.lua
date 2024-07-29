@@ -14,39 +14,49 @@ local servers = {
   },
   pylsp = {},
   marksman = {},
+  ltex = {},
 }
 
 return { -- nvim-lspconfig: language server configs
   "neovim/nvim-lspconfig",
-  lazy = false,
+  event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
   },
   keys = {
     {
-      "<leader>Fa",
+      "<leader>l",
+      "",
+      desc = "LSP",
+    },
+    {
+      "<leader>la",
       function()
         vim.lsp.buf.code_action()
       end,
       desc = "LSP code actions",
     },
+    {
+      "<leader>lS",
+      "<cmd>LspStart<CR>",
+      desc = "Start LSP server",
+    },
+    {
+      "<leader>ls",
+      "<cmd>LspStop<CR>",
+      desc = "Stop LSP server",
+    },
+    {
+      "<leader>lR",
+      "<cmd>LspRestart<CR>",
+      desc = "Restart LSP server",
+    },
   },
-  init = function()
-    -- disable lsp watcher. Too slow on linux
-    local ok, wf = pcall(require, "vim.lsp._watchfiles")
-    if ok then
-      wf._watchfunc = function()
-        return function() end
-      end
-    end
-  end,
   config = function()
     local mason_lspconfig = require("mason-lspconfig")
     local on_attach = require("core.lsp").on_attach
-    local capabilities = require("core.lsp").capabilities
-
-    require("mason").setup()
+    local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
     -- install servers defined at the top
     mason_lspconfig.setup({
@@ -56,13 +66,28 @@ return { -- nvim-lspconfig: language server configs
     -- make sure the servers actually work with cmp
     mason_lspconfig.setup_handlers({
       function(server_name)
-        if server_name ~= "jdtls" then
-          require("lspconfig")[server_name].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-            settings = servers[server_name],
-          })
-        end
+        require("lspconfig")[server_name].setup({
+          capabilities = capabilities,
+          on_attach = on_attach,
+          settings = servers[server_name],
+        })
+      end,
+      ["ltex"] = function()
+        require("lspconfig")["ltex"].setup({
+          autostart = false,
+          settings = {
+            ltex = {
+              language = "en-US",
+              checkFrequency = "save",
+              disabledRules = {
+                ["en-US"] = {
+                  "PROFANITY",
+                  "MORFOLOGIK_RULE_EN_US",
+                },
+              },
+            },
+          },
+        })
       end,
     })
   end,
