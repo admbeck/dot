@@ -130,3 +130,6 @@ vim.opt.omnifunc = "syntaxcomplete#Complete"
 if vim.o.termguicolors ~= nil then
   vim.o.termguicolors = true
 end
+
+-- per-project configuration
+vim.o.exrc = true
