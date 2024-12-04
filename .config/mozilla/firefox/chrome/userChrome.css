@@ -45,7 +45,7 @@
     transition: all 100ms !important;
     min-width: var(--thin-tab-width) !important;
     max-width: var(--thin-tab-width) !important;
-    z-index: 1;
+    z-index: 999 !important;
 }
 #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]:hover {
     transition: all 100ms !important;
