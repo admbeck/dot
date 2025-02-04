@@ -22,16 +22,20 @@ return { -- conform.nvim: automatic formatter
   opts = {
     formatters_by_ft = {
       javascript = {
-        { "prettierd", "prettier" },
+        "prettierd",
+        "prettier",
       },
       typescript = {
-        { "prettierd", "prettier" },
+        "prettierd",
+        "prettier",
       },
       html = {
-        { "prettierd", "prettier" },
+        "prettierd",
+        "prettier" ,
       },
       css = {
-        { "prettierd", "prettier" },
+        "prettierd",
+        "prettier",
       },
       markdown = { "markdownlint-cli2" },
       lua = { "stylua" },
